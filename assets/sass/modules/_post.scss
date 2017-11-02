@@ -1,0 +1,10 @@
+.post {
+    margin: -$grid-gutter-width 0;
+    padding: $grid-gutter-width 0;
+
+    &-container {
+        background-color: $white;
+        border-radius: 5px;
+        padding: 15px;
+    }
+}

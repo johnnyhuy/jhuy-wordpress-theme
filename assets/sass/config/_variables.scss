@@ -1,0 +1,144 @@
+// 
+// Bootstrap inspired variables
+// @author Johnny Huynh
+// 
+
+//
+// Sidebar
+//
+$sidebar-width:             200px;
+
+// 
+// Footer
+// 
+$footer-height:             130px;
+
+// 
+// Custom variables
+// 
+
+$custom-logo-width:         auto;
+$custom-logo-height:        50px;
+
+//
+// Color system
+//
+
+$white:  #fff !default;
+$gray-100: #e5e5e5 !default;
+$gray-200: #ccc !default;
+$gray-300: #b2b2b2 !default;
+$gray-400: #999 !default;
+$gray-500: #7f7f7f !default;
+$gray-600: #666 !default;
+$gray-700: #4d4d4d !default;
+$gray-800: #333 !default;
+$gray-900: #1a1a1a !default;
+$black:  #000 !default;
+
+$grays: (
+    100: $gray-100,
+    200: $gray-200,
+    300: $gray-300,
+    400: $gray-400,
+    500: $gray-500,
+    600: $gray-600,
+    700: $gray-700,
+    800: $gray-800,
+    900: $gray-900
+) !default;
+
+$blue:    #007bff !default;
+$indigo:  #6610f2 !default;
+$purple:  #6f42c1 !default;
+$pink:    #e83e8c !default;
+$red:     #dc3545 !default;
+$orange:  #fd7e14 !default;
+$yellow:  #ffc107 !default;
+$green:   #28a745 !default;
+$teal:    #20c997 !default;
+$cyan:    #17a2b8 !default;
+
+$colors: (
+    blue: $blue,
+    indigo: $indigo,
+    purple: $purple,
+    pink: $pink,
+    red: $red,
+    orange: $orange,
+    yellow: $yellow,
+    green: $green,
+    teal: $teal,
+    cyan: $cyan,
+    white: $white,
+    gray: $gray-600,
+    gray-dark: $gray-800
+) !default;
+
+$theme-colors: (
+    primary: #f50707,
+    primary-light: #fa2222,
+    primary-dark: #c20606,
+    secondary: $gray-600,
+    success: $green,
+    info: $cyan,
+    warning: $yellow,
+    danger: $red,
+    light: $gray-100,
+    dark: $gray-800
+) !default;
+
+// Body
+// 
+// Settings for the `<body>` element.
+
+$body-bg:       #f1f1f1 !default;
+$body-color:    $gray-900 !default;
+
+// Fonts
+//
+// Font, line-height, and color for body text, headings, and more.
+
+$font-directory: '/wp-content/themes/jhuy/assets/fonts';
+
+$font-family-sans-serif: 'Roboto', 'Open Sans' !default;
+$font-family-monospace:  'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace !default;
+$font-family-base:       $font-family-sans-serif !default;
+$font-family-second:     'Open Sans' !default;
+
+// 
+// Grid
+// 
+
+$grid-gutter-width:     15px;
+
+// Grid breakpoints
+// 
+// Page grid dimensions where the layout changes depending on
+//  the size of the window.
+// 
+// Use media queries to adjust accordingly.
+
+$grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px
+) !default;
+
+// Grid containers
+//
+// Get the max-width of .container classes
+
+$container-max-widths: (
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1140px
+) !default;
+
+// 
+// Nav
+// 
+$nav-gutter-width:      5px;

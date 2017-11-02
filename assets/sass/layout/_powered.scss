@@ -1,0 +1,15 @@
+.powered {
+    display: flex;
+
+    &-text {
+        color: $white;
+        font-family: 'Roboto';
+        font-size: 1.6rem;
+        font-style: italic;
+        font-weight: 400;
+    }
+
+    &-image {
+        height: 40px;
+    }
+}

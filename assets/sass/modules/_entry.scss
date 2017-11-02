@@ -1,0 +1,21 @@
+.entry {
+    &-title {
+        color: theme-color('primary');
+        margin-bottom: 10px;
+        margin-top: 8px;
+
+        &-link {
+            color: theme-color('primary');
+            font-family: 'Roboto';
+            text-decoration: none;
+
+            &:hover {
+                color: theme-color('primary-light');
+            }
+        }
+    }
+
+    &-content {
+        font-family: 'Open Sans';
+    }
+}

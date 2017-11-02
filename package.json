@@ -1,0 +1,41 @@
+{
+  "name": "jhuy",
+  "version": "1.0.0",
+  "description": "jHuy Wordpress Theme",
+  "main": "index.php",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack --config webpack.dev.js --progress --colors",
+    "watch": "webpack-dashboard  -- webpack --hide-modules --config webpack.dev.js --progress --colors --watch",
+    "prod": "webpack --hide-modules --config webpack.prod.js --progress --colors"
+  },
+  "author": "johnnyhuy",
+  "license": "MIT",
+  "bugs": {
+    "url": "http://johnnyhuy.com/issues"
+  },
+  "homepage": "http://johnnyhuy.com",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "css-loader": "^0.28.7",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^0.11.2",
+    "gsap": "^1.20.2",
+    "hamburgers": "^0.9.1",
+    "jquery": "^3.2.1",
+    "node-sass": "^4.5.3",
+    "resolve-url-loader": "^2.2.0",
+    "sass-loader": "^6.0.6",
+    "scrollmagic": "^2.0.5",
+    "style-loader": "^0.18.2",
+    "url-loader": "^0.5.9",
+    "webpack": "^3.8.1",
+    "webpack-dashboard": "^1.0.0",
+    "webpack-merge": "^4.1.0",
+    "webpack-notifier": "^1.5.0"
+  },
+  "dependencies": {}
+}
