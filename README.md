@@ -2,6 +2,10 @@
 
 This is my first WordPress theme created for my personal website at [johnnyhuy.com](http://johnnyhuy.com).
 
+# Todo
+
+- Release build (.zip) for normal upload installation.
+
 ## Getting Started
 
 ### Prerequisites
