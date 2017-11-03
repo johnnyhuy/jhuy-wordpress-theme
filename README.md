@@ -34,13 +34,19 @@ npm i
 
 Build assets for development/production
 
-Development: build
+
+**(Recommended)** Development: build with server
+This is required to have hot-swapping and live reloading for development use. It uses the webpack dev server with a proxy to a main host (e.g. WAMP or LAMP setup).
 
 ```
 npm run dev
 ```
 
-Development: watch
+Development: build without server
+
+```
+npm run dev-no-server
+```
 
 Production
 

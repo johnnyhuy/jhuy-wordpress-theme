@@ -3,10 +3,10 @@ const path = require('path');
 const extractTextPlugin = require('extract-text-webpack-plugin');
 const webpackNotifierPlugin = require('webpack-notifier');
 const webpack = require('webpack');
-const dashboardPlugin = require('webpack-dashboard/plugin');
 
 // Theme settings
 const THEME_NAME = 'jhuy'
+exports.THEME_NAME = THEME_NAME
 
 // Plugins
 const extractSass = new extractTextPlugin({
@@ -21,11 +21,13 @@ const jquery = new webpack.ProvidePlugin({
     jQuery: 'jquery',
     'windows.jQuery': 'jquery'
 });
-const dashboard = new dashboardPlugin();
 
 module.exports = {
     devtool: 'source-map',
-    entry: ['./assets/js/init.js', './assets/sass/init.scss'],
+    entry: [
+        './assets/js/init.js',
+        './assets/sass/init.scss'
+    ],
     output: {
         path: path.resolve(__dirname),
         filename: 'assets/js/bundle.js',
@@ -62,27 +64,25 @@ module.exports = {
         },
         {
             test: /\.(jpe?g|png|gif|svg)$/i,
-            loader: 'file-loader',
+            loader: 'url-loader',
             query:{
-                name: '/[ext]/[name].[hash].[ext]',
-                outputPath: 'public/images'
+                limit: 8192,
+                name: '/[ext]/[name].[ext]?[hash]',
             }
         },
         {
             test: /\.(woff(2)?|ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
             loader: 'url-loader',
             query: {
-                limit: '10000',
-                name: '[name].[hash].[ext]',
-                outputPath: 'public/fonts'
+                limit: 8192,
+                name: '[name].[ext]?[hash]',
             }
         }]
     },
     plugins: [
         extractSass,
         notifier,
-        jquery,
-        dashboard
+        jquery
     ],
     resolve: {
         alias: {

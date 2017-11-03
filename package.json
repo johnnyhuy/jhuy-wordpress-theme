@@ -6,8 +6,8 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack --config webpack.dev.js --progress --colors",
-    "watch": "webpack-dashboard  -- webpack --hide-modules --config webpack.dev.js --progress --colors --watch",
+    "dev-no-server": "webpack --config webpack.dev.js --progress --colors",
+    "dev": "webpack-dashboard -- webpack-dev-server --quiet --inline --hot --port=3000 --config webpack.dev.js",
     "prod": "webpack --hide-modules --config webpack.prod.js --progress --colors"
   },
   "author": "johnnyhuy",
@@ -27,6 +27,7 @@
     "hamburgers": "^0.9.1",
     "jquery": "^3.2.1",
     "node-sass": "^4.5.3",
+    "open-browser-webpack-plugin": "0.0.5",
     "resolve-url-loader": "^2.2.0",
     "sass-loader": "^6.0.6",
     "scrollmagic": "^2.0.5",
@@ -34,6 +35,7 @@
     "url-loader": "^0.5.9",
     "webpack": "^3.8.1",
     "webpack-dashboard": "^1.0.0",
+    "webpack-dev-server": "^2.9.4",
     "webpack-merge": "^4.1.1",
     "webpack-notifier": "^1.5.0"
   },
