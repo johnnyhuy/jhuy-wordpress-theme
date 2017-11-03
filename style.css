@@ -179,48 +179,48 @@ h6 {
 
 @font-face {
   font-family: 'Roboto';
-  src: url(./assets/fonts/Roboto-Regular.ttf) format("truetype"); }
+  src: url(./public/assets/fontsRoboto-Regular.3e1af3ef546b9e6ecef9f3ba197bf7d2.ttf) format("truetype"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: italic;
-  src: url(./assets/fonts/Roboto-Italic.ttf) format("truetype"); }
+  src: url(./public/assets/fontsRoboto-Italic.42bbe4eefcde1297b11dc4b6491e9746.ttf) format("truetype"); }
 
 @font-face {
   font-family: 'Roboto';
   font-weight: 500;
-  src: url(./assets/fonts/Roboto-Medium.ttf) format("truetype"); }
+  src: url(./public/assets/fontsRoboto-Medium.d08840599e05db7345652d3d417574a9.ttf) format("truetype"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: italic;
   font-weight: 500;
-  src: url(./assets/fonts/Roboto-MediumItalic.ttf) format("truetype"); }
+  src: url(./public/assets/fontsRoboto-MediumItalic.bd19ad60600a1537c00d3b4923a5e5de.ttf) format("truetype"); }
 
 @font-face {
   font-family: 'Roboto';
   font-weight: bold;
-  src: url(./assets/fonts/Roboto-Bold.ttf) format("truetype"); }
+  src: url(./public/assets/fontsRoboto-Bold.ee7b96fa85d8fdb8c126409326ac2d2b.ttf) format("truetype"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: italic;
   font-weight: bold;
-  src: url(./assets/fonts/Roboto-BoldItalic.ttf) format("truetype"); }
+  src: url(./public/assets/fontsRoboto-BoldItalic.1eb7a893589ddce89d81cdb22a356660.ttf) format("truetype"); }
 
 @font-face {
   font-family: 'Open Sans';
-  src: url(./assets/fonts/OpenSans-Regular.ttf) format("truetype"); }
+  src: url(./public/assets/fontsOpenSans-Regular.d7d5d4588a9f50c99264bc12e4892a7c.ttf) format("truetype"); }
 
 @font-face {
   font-family: 'Open Sans';
   font-weight: 600;
-  src: url(./assets/fonts/OpenSans-SemiBold.ttf) format("truetype"); }
+  src: url(./public/assets/fontsOpenSans-SemiBold.e1c83f9474e0cc1d84a13c6d1ddf3ca5.ttf) format("truetype"); }
 
 @font-face {
   font-family: 'Open Sans';
   font-weight: bold;
-  src: url(./assets/fonts/OpenSans-Bold.ttf) format("truetype"); }
+  src: url(./public/assets/fontsOpenSans-Bold.f5331cb6372b6c0d8baf2dd7e200498c.ttf) format("truetype"); }
 
 .custom-header {
   grid-area: custom-header; }

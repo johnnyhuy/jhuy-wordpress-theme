@@ -1,0 +1,5 @@
+{
+    "phpcs.standard": "WordPress-Core,WordPress-VIP",
+    "editor.insertSpaces": false,
+    "editor.tabSize": 4
+}

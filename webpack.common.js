@@ -64,8 +64,8 @@ module.exports = {
             test: /\.(jpe?g|png|gif|svg)$/i,
             loader: 'file-loader',
             query:{
-                name: '/[ext]/[name].[ext]',
-                outputPath: 'assets/images'
+                name: '/[ext]/[name].[hash].[ext]',
+                outputPath: 'public/images'
             }
         },
         {
@@ -73,8 +73,8 @@ module.exports = {
             loader: 'url-loader',
             query: {
                 limit: '10000',
-                name: '[name].[ext]',
-                outputPath: 'assets/fonts/'
+                name: '[name].[hash].[ext]',
+                outputPath: 'public/fonts'
             }
         }]
     },
