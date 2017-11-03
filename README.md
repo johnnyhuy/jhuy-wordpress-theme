@@ -53,6 +53,12 @@ npm run prod
 
 Go to your WordPress and select the theme `jHuy`.
 
+## Development
+
+This project uses the Node package manager to build assets such as Sass. I've also included a VSCode setting to enable php-cs a Code-Sniffer to follow the WordPress standard to further add consistancy in code.
+
+This is an open source project so please feel free to add changes.
+
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details
