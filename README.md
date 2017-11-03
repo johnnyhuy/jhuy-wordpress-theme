@@ -2,7 +2,7 @@
 
 This is my first WordPress theme created for my personal website at [johnnyhuy.com](http://johnnyhuy.com).
 
-# Todo
+## Todo
 
 - Release build (.zip) for normal upload installation. This build will have prebuilt assets.
 
