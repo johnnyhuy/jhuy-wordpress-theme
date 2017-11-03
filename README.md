@@ -20,7 +20,6 @@ This is my first WordPress theme created for my personal website at [johnnyhuy.c
 
 Download this theme from this repository from the root directory and place in your WordPress `wp-content/themes` folder.
 
-
 ***2. Build assets with Node npm scripts***
 
 Since this project relies on npm packages, packages need to be install and assets need to be compiled. Run the following commands in sequential order.
