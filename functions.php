@@ -142,7 +142,7 @@ function jhuy_scripts() {
 	wp_script_add_data( 'html5', 'conditional', 'lt IE 9' );
 
 	// Load WebPack JS bundle file (includes jQuery and other NPM deps.).
-	wp_enqueue_script( 'jhuy-bundle', get_theme_file_uri( '/assets/js/bundle.js' ), array(), null );
+	wp_enqueue_script( 'jhuy-bundle', get_theme_file_uri( '/assets/js/bundle.js' ), array(), null, true );
 }
 add_action( 'wp_enqueue_scripts', 'jhuy_scripts' );
 
