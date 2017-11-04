@@ -1,90 +1,57 @@
-// Require
+// Core packages
 const path = require('path');
-const extractTextPlugin = require('extract-text-webpack-plugin');
-const webpackNotifierPlugin = require('webpack-notifier');
 const webpack = require('webpack');
 
-// Theme settings
-const THEME_NAME = 'jhuy'
-exports.THEME_NAME = THEME_NAME
-
-// Plugins
-const extractSass = new extractTextPlugin({
-    filename: 'style.css',
-    allChunks: true
-});
-const notifier = new webpackNotifierPlugin({
-    alwaysNotify: true
-})
-const jquery = new webpack.ProvidePlugin({
-    $: 'jquery',
-    jQuery: 'jquery',
-    'windows.jQuery': 'jquery'
-});
+// Other
+const WebpackNotifierPlugin = require('webpack-notifier');
+const WriteFilePlugin = require('write-file-webpack-plugin');
 
 module.exports = {
-    devtool: 'source-map',
     entry: [
         './assets/js/init.js',
         './assets/sass/init.scss'
     ],
     output: {
         path: path.resolve(__dirname),
-        filename: 'assets/js/bundle.js',
-        publicPath: './'
+        filename: './assets/js/bundle.js',
+        publicPath: '/wp-content/themes/jhuy/assets'
     },
     module: {
         rules: [{
-            test: /\.(scss|sass)$/,
-            use: extractSass.extract({
-                fallback: 'style-loader',
-                use: [{
-                    loader: 'css-loader',
-                    query: {
-                        minimize: false,
-                        sourceMap: true,
-                        importLoaders: 2
-                    }
-                },
-                {
-                    loader: 'sass-loader',
-                    query: {
-                        sourceMap: true,
-                        sourceMapContents: true
-                    }
-                }]
-            })
-        },
-        {
             test: /\.js$/,
             exclude: /(node_modules|bower_components)/,
             use: {
                 loader: 'babel-loader'
             }
-        },
-        {
+        }, {
             test: /\.(jpe?g|png|gif|svg)$/i,
+            exclude: /(node_modules|bower_components)/,
             loader: 'file-loader',
             query:{
                 limit: 8192,
-                name: '/[ext]/[name].[ext]?[hash]',
-                outputPath: './public'
+                name: '/images/[ext]/[name].[ext]?[hash]',
             }
-        },
-        {
+        }, {
             test: /\.(woff(2)?|ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-            loader: 'file-loader',
+            exclude: /(node_modules|bower_components)/,
+            loader: 'url-loader',
             query: {
                 limit: 8192,
-                name: '/[name].[ext]?[hash]',
-                outputPath: './public'
+                name: '/fonts/[name].[ext]?[hash]',
+                emitFile: false
             }
         }]
     },
     plugins: [
-        extractSass,
-        notifier,
-        jquery
+        new WebpackNotifierPlugin({
+            alwaysNotify: true
+        }),
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery',
+            'window.jQuery': 'jquery'
+        }),
+        new WriteFilePlugin(),
     ],
     resolve: {
         alias: {
