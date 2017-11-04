@@ -64,18 +64,20 @@ module.exports = {
         },
         {
             test: /\.(jpe?g|png|gif|svg)$/i,
-            loader: 'url-loader',
+            loader: 'file-loader',
             query:{
                 limit: 8192,
                 name: '/[ext]/[name].[ext]?[hash]',
+                outputPath: './public'
             }
         },
         {
             test: /\.(woff(2)?|ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-            loader: 'url-loader',
+            loader: 'file-loader',
             query: {
                 limit: 8192,
-                name: '[name].[ext]?[hash]',
+                name: '/[name].[ext]?[hash]',
+                outputPath: './public'
             }
         }]
     },
