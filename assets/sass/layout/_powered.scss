@@ -1,7 +1,7 @@
 .powered {
     display: flex;
 
-    &-text {
+    &__text {
         color: $white;
         font-family: 'Roboto';
         font-size: 1.6rem;
@@ -9,7 +9,7 @@
         font-weight: 400;
     }
 
-    &-image {
+    &__image {
         height: 40px;
     }
 }

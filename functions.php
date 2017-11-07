@@ -2,7 +2,9 @@
 /**
  * Theme functions and definitions.
  *
- * @package jhuy
+ * @package WordPress
+ * @subpackage jHuy
+ * @since 1.0
  */
 
 /**
@@ -105,9 +107,6 @@ add_action( 'after_setup_theme', 'jhuy_init' );
  * @return void
  */
 function jhuy_scripts() {
-	// Custom fonts
-	// wp_enqueue_style( 'jhuy-fonts', jhuy_fonts_url(), array(), null );
-
 	$parent_style = 'jhuy-style';
 
 	// Get theme version.
@@ -147,15 +146,6 @@ function jhuy_scripts() {
 add_action( 'wp_enqueue_scripts', 'jhuy_scripts' );
 
 /**
- * Return fonts URL.
- *
- * @return void
- */
-function jhuy_fonts_url() {
-	// TODO.
-}
-
-/**
  * Filter to add a class to the menu
  *  anchor.
  *
@@ -168,3 +158,8 @@ function add_class_to_menu_anchor( $atts ) {
 	return $atts;
 }
 add_filter( 'nav_menu_link_attributes', 'add_class_to_menu_anchor', 10 );
+
+/**
+ * Custom template tags for this theme.
+ */
+require get_parent_theme_file_path( '/inc/template-tags.php' );

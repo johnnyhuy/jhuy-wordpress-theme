@@ -1,5 +1,11 @@
 <?php get_header(); ?>
-<main id="main" class="container site-main" role="main">
+
+<?php if ( is_home() || is_front_page() ) : ?>
+	<main id="main" class="container site-main site-blog" role="main">
+		<div class="site-blog__bar"></div>
+<?php else : ?>
+	<main id="main" class="container site-main" role="main">
+<?php endif; ?>
 
 	<?php
 	if ( have_posts() ) {
@@ -24,7 +30,7 @@
 		 * When there is no posts available
 		 *  load no content post format
 		 */
-		get_template_part( 'template-parts/post/content', 'none' ); 
+		get_template_part( 'template-parts/post/content', 'none' );
 
 	}
 	?>

@@ -15,6 +15,10 @@
 				the_title( '<h1 class="entry-title">', '</h1>' );
 			} elseif ( is_front_page() && is_home() ) {
 				the_title( '<h2 class="entry-title"><a class="entry-title-link" href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+				echo '<div class="site-blog__dot"></div>';
+			} elseif ( is_home() ) {
+				the_title( '<h3 class="entry-title"><a class="entry-title-link" href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
+				echo '<div class="site-blog__dot"></div>';
 			} else {
 				the_title( '<h3 class="entry-title"><a class="entry-title-link" href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
 			}
@@ -32,5 +36,17 @@
 			?>
 
 		</div>
+		<?php
+		if ( 'post' === get_post_type() ) {
+			echo '<div class="entry-meta">';
+			if ( is_single() ) {
+				twentyseventeen_posted_on();
+			} else {
+				echo twentyseventeen_time_link();
+				twentyseventeen_edit_link();
+			};
+			echo '</div><!-- .entry-meta -->';
+		};
+		?>
 	</div>
 </article><!-- #post-## -->

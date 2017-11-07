@@ -8,7 +8,7 @@
 ?>
 <div class="container custom-header">
 
-	<div class="custom-header-media">
+	<div class="custom-header__media">
 		<?php the_custom_header_markup(); ?>
 	</div>
 

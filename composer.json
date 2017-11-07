@@ -1,0 +1,15 @@
+{
+    "name": "johnnyhuy/jhuy",
+    "description": "My first WordPress theme.",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Johnny Huynh",
+            "email": "johnnyhuy@users.noreply.github.com"
+        }
+    ],
+    "require": {
+        "phpunit/phpunit": "^6.4"
+    }
+}

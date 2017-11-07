@@ -1,6 +1,7 @@
 .post {
     margin: -$grid-gutter-width 0;
     padding: $grid-gutter-width 0;
+    position: relative;
 
     &-container {
         background-color: $white;
