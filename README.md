@@ -102,7 +102,7 @@ Fill out the appropriate constant names as shown.
 
 This script `bin/install-wp-tests.sh` was provided by WordPress CLI through the `$ wp-cli scaffold plugin-tests` command.
 
-***Run Tests**
+***Run Tests***
 
 Running PHPUnit can be done through the global path with just `phpunit`.
 
