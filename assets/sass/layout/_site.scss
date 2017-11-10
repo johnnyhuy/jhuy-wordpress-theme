@@ -1,16 +1,21 @@
 .site {
     display: grid;
-    grid-template-areas: 'site-header site-navigation' 'site-content site-navigation';
-    grid-template-columns: auto $sidebar-width;
+    grid-template-areas: 'site-header' 'site-content';
+    grid-template-columns: auto;
     grid-template-rows: 100px auto;
     height: 100%;
 
+    &-sidebar {
+        grid-template-areas: 'site-header site-navigation' 'site-content site-navigation';
+        grid-template-columns: auto $sidebar-width;
+    }
+
     &-blog {
+        overflow: hidden;
         padding-left: 40px;
         position: relative;
 
-        
-        &__bar {
+        &-bar {
             &:before {
                 background-color: $gray-100;
                 border-radius: 4px;
@@ -19,12 +24,12 @@
                 left: 17px;
                 margin-bottom: 10px;
                 position: absolute;
-                top: 0;
+                top: 0; 
                 width: 6px;
             }
         }
 
-        &__dot {
+        &-dot {
             &:before {
                 background-color: theme-color('primary');
                 border-radius: 100%;
@@ -54,14 +59,11 @@
 
     &-footer {
         background-color: $gray-800;
-        bottom: 0;
-        height: $footer-height;
-        position: absolute;
-        width: 100%;
+        padding-top: 40px;
     }
 
     &-main {
-        margin-bottom: $footer-height + $grid-gutter-width;
+        margin-bottom: $grid-gutter-width;
         margin-top: $grid-gutter-width;
         overflow: hidden;
     }
@@ -85,6 +87,17 @@
                 &:hover {
                     background-color: $gray-800;
                 }
+            }
+        }
+    }
+
+    &-title {
+        &-link {
+            color: $white;
+            text-decoration: none;
+
+            &:hover {
+                color: $white;
             }
         }
     }

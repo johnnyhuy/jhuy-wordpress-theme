@@ -4,7 +4,6 @@ const webpack = require('webpack');
 
 // Other
 const WebpackNotifierPlugin = require('webpack-notifier');
-const WriteFilePlugin = require('write-file-webpack-plugin');
 
 module.exports = {
     entry: [
@@ -14,7 +13,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname),
         filename: './assets/js/bundle.js',
-        publicPath: '/wp-content/themes/jhuy/assets'
+        publicPath: '/wp-content/themes/jhuy/'
     },
     module: {
         rules: [{
@@ -29,7 +28,7 @@ module.exports = {
             loader: 'file-loader',
             query:{
                 limit: 8192,
-                name: '/images/[ext]/[name].[ext]?[hash]',
+                name: '/assets/images/[ext]/[name].[ext]?[hash]',
             }
         }, {
             test: /\.(woff(2)?|ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
@@ -37,7 +36,7 @@ module.exports = {
             loader: 'url-loader',
             query: {
                 limit: 8192,
-                name: '/fonts/[name].[ext]?[hash]',
+                name: '/assets/fonts/[name].[ext]?[hash]',
                 emitFile: false
             }
         }]
@@ -50,8 +49,7 @@ module.exports = {
             $: 'jquery',
             jQuery: 'jquery',
             'window.jQuery': 'jquery'
-        }),
-        new WriteFilePlugin(),
+        })
     ],
     resolve: {
         alias: {

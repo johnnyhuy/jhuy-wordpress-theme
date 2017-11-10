@@ -1,7 +1,10 @@
 .powered {
+    align-items: center;
     display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
 
-    &__text {
+    &-text {
         color: $white;
         font-family: 'Roboto';
         font-size: 1.6rem;
@@ -9,7 +12,7 @@
         font-weight: 400;
     }
 
-    &__image {
+    &-image {
         height: 40px;
     }
 }

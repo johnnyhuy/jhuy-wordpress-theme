@@ -19,8 +19,26 @@ endif;
 
 if ( ! function_exists( 'jhuy_time_link' ) ) :
 
-	function jhuy_time_link() {
-		return 'this is a test';
+	function jhuy_time_link( $elapsed = false ) {
+		$time_string = '<time class="entry-date published updated" datetime="%1$s">%4$s ago</time>';
+		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+		}
+
+		$time_string = sprintf( $time_string,
+			get_the_date( DATE_W3C ),
+			get_the_date(),
+			get_elapsed_time_string(),
+			get_elapsed_time_string( true ),
+			get_the_modified_date( DATE_W3C ),
+			get_the_modified_date()
+		);
+
+		return sprintf(
+			/* translators: %s: post date */
+			__( '<span class="screen-reader-text">Posted </span> %s', 'jhuy' ),
+			'<a class="entry-date-link" href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+		);
 	}
 
 endif;

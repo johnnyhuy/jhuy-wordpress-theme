@@ -52,14 +52,14 @@ function jhuy_init() {
 
 	// Register navigation menus.
 	register_nav_menus( array(
-		'top' => __( 'Top Menu', 'jhuy' ),
+		'right-sidebar' => __( 'Right Sidebar', 'jhuy' ),
 	) );
 
 	// Define and register starter content to showcase the theme on new sites.
 	$starter_content = array(
 		'nav_menus' => array(
-			'top' => array(
-				'name'  => __( 'Top Menu', 'jhuy' ),
+			'right-sidebar' => array(
+				'name'  => __( 'Right Sidebar', 'jhuy' ),
 				'items' => array(
 					'link_home',
 					'page_about',
@@ -100,6 +100,42 @@ function jhuy_init() {
 	add_theme_support( 'starter-content', $starter_content );
 }
 add_action( 'after_setup_theme', 'jhuy_init' );
+
+/**
+ * Initialize widget area
+ *
+ * @return void
+ */
+function jhuy_widgets_init() {
+	register_sidebar( array(
+		'name'          => __( 'Footer Left', 'jhuy' ),
+		'id'            => 'footer-left',
+		'description'   => __( 'Add widget content to the footer.', 'jhuy' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h4 class="widget-title">',
+		'after_title'   => '</h4>',
+	) );
+	register_sidebar( array(
+		'name'          => __( 'Footer Middle', 'jhuy' ),
+		'id'            => 'footer-middle',
+		'description'   => __( 'Add widget content to the footer.', 'jhuy' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h4 class="widget-title">',
+		'after_title'   => '</h4>',
+	) );
+	register_sidebar( array(
+		'name'          => __( 'Footer Right', 'jhuy' ),
+		'id'            => 'footer-right',
+		'description'   => __( 'Add widget content to the footer.', 'jhuy' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h4 class="widget-title">',
+		'after_title'   => '</h4>',
+	) );
+}
+add_action( 'widgets_init', 'jhuy_widgets_init' );
  
 /**
  * Enqueue scripts and styles.
@@ -116,9 +152,8 @@ function jhuy_scripts() {
 	 * Developer use only
 	 * Force WordPress to load stylesheet
 	 *
-	 * DISABLE IF IN PRODUCTION
 	 */
-	$theme_version = time();
+	$theme_version = '1.0';
 
 	// Theme stylesheet.
 	wp_enqueue_style( $parent_style, get_stylesheet_uri(),

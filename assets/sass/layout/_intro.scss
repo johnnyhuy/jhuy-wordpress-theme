@@ -1,0 +1,33 @@
+.intro {
+    background-color: $gray-100;
+
+    &-container {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        padding: 15px 0;
+    }
+
+    &-image {
+        border-radius: 4px;
+        height: 100px;
+        width: 100px;
+    }
+
+    &-quote {
+        color: $gray-600;
+        font-size: 2.4rem;
+        font-style: italic;
+        margin-left: 80px;
+
+        &:before {
+            content: '"';
+            margin-right: .4rem;
+        }
+
+        &:after {
+            content: '"';
+            margin-left: .4rem;
+        }
+    }
+}

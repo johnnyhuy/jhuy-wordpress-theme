@@ -1,0 +1,22 @@
+.search {
+    &-field {
+        background-clip: padding-box;
+        background-color: $white;
+        border: 0;
+        border-radius: 4px;
+        box-shadow: none;
+        margin-top: 8px;
+        outline: none;
+        padding: 4px;
+        width: 100%;
+    }
+
+    &-submit {
+        background-color: theme-color('primary');
+        border: 0;
+        border-radius: 4px;
+        margin-top: 8px;
+        outline: none;
+        width: 100%;
+    }
+}

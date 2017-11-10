@@ -23,6 +23,8 @@
 
 // Layouts (order independant)
 @import 'layout/custom';
+@import 'layout/footer';
+@import 'layout/intro';
 @import 'layout/powered';
 @import 'layout/sidebar';
 @import 'layout/site';
@@ -31,3 +33,5 @@
 @import 'modules/container';
 @import 'modules/entry';
 @import 'modules/post';
+@import 'modules/search';
+@import 'modules/widget';
