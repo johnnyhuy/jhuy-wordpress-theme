@@ -1,12 +1,23 @@
+<?php
+/**
+ * Theme front page.
+ *
+ * @package WordPress
+ * @subpackage jHuy
+ * @since 1.0
+ */
+
+?>
 <?php get_header(); ?>
-
-<?php if ( is_home() || is_front_page() ) : ?>
-	<main id="main" class="container site-main site-blog" role="main">
+<div class="intro">
+	<section class="container intro-container">
+		<p class="intro-quote"><?php echo get_option( 'jhuy_quote' ); ?></p>
+		<img class="intro-image" src="<?php echo esc_url( get_avatar_url( get_option( 'admin_email' ) ) ); ?>" alt="profile_pic">
+	</section>
+</div>
+<main id="main" class="container site-main" role="main">
+	<div class="site-blog">
 		<div class="site-blog-bar"></div>
-<?php else : ?>
-	<main id="main" class="container site-main" role="main">
-<?php endif; ?>
-
 	<?php
 	if ( have_posts() ) {
 
@@ -34,7 +45,7 @@
 
 	}
 	?>
-
+	</div>
 </main><!-- #main -->
 
 <?php get_footer(); ?>

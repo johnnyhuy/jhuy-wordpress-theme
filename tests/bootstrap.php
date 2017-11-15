@@ -19,7 +19,7 @@ require_once $_tests_dir . '/includes/functions.php';
  * Get theme firectory to relative path.
  * Path is parent of this file.
  *
- * @return void
+ * @return string
  */
 function _set_theme_directory() {
 	return dirname( dirname( __FILE__ ) );

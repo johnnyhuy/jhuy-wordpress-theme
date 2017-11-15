@@ -14,7 +14,7 @@ class TemplateTagsTest extends WP_UnitTestCase {
 	 *
 	 * @return void
 	 */
-	function test_get_elapsed_time_string_post_does_not_exist() {
+	public function test_get_elapsed_time_string_post_does_not_exist() {
 		$this->assertFalse( get_elapsed_time_string( null ) );
 	}
 
@@ -26,7 +26,7 @@ class TemplateTagsTest extends WP_UnitTestCase {
 	 *
 	 * @return void
 	 */
-	function test_get_elapsed_time_string_minutes() {
+	public function test_get_elapsed_time_string_minutes() {
 		/**
 		 * Test data.
 		 *  where key is the time subtracted from now.
@@ -58,7 +58,7 @@ class TemplateTagsTest extends WP_UnitTestCase {
 	 *
 	 * @return void
 	 */
-	function test_get_elapsed_time_string_hours() {
+	public function test_get_elapsed_time_string_hours() {
 		/**
 		 * Test data.
 		 *  where key is the time subtracted from now.
@@ -90,7 +90,7 @@ class TemplateTagsTest extends WP_UnitTestCase {
 	 *
 	 * @return void
 	 */
-	function test_get_elapsed_time_string_days() {
+	public function test_get_elapsed_time_string_days() {
 		/**
 		 * Test data.
 		 *  where key is the time subtracted from now.
@@ -123,7 +123,7 @@ class TemplateTagsTest extends WP_UnitTestCase {
 	 *
 	 * @return void
 	 */
-	function test_get_elapsed_time_string_months() {
+	public function test_get_elapsed_time_string_months() {
 		/**
 		 * Test data.
 		 *  where key is the time subtracted from now.
@@ -157,7 +157,7 @@ class TemplateTagsTest extends WP_UnitTestCase {
 	 *
 	 * @return void
 	 */
-	function test_get_elapsed_time_string_years() {
+	public function test_get_elapsed_time_string_years() {
 		/**
 		 * Test data.
 		 *  where key is the time subtracted from now.

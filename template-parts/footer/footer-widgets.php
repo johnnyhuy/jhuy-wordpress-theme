@@ -1,4 +1,14 @@
 <?php
+/**
+ * Footer widgets
+ *
+ * @package WordPress
+ * @subpackage jHuy
+ * @since 1.0
+ */
+
+?>
+<?php
 if ( is_active_sidebar( 'footer-left' ) ||
 	is_active_sidebar( 'footer-middle' ) ||
 	is_active_sidebar( 'footer-right' ) ) :

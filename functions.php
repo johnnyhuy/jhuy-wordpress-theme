@@ -198,3 +198,8 @@ add_filter( 'nav_menu_link_attributes', 'add_class_to_menu_anchor', 10 );
  * Custom template tags for this theme.
  */
 require get_parent_theme_file_path( '/inc/template-tags.php' );
+
+/**
+ * Admin panel custom theme settings.
+ */
+require get_parent_theme_file_path( '/inc/admin.php' );

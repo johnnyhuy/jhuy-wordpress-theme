@@ -1,3 +1,13 @@
+<?php
+/**
+ * Footer of theme.
+ *
+ * @package WordPress
+ * @subpackage jHuy
+ * @since 1.0
+ */
+
+?>
 	<footer class="site-footer" role="contentinfo">
 		<div class="container">
 			<section class="powered">
