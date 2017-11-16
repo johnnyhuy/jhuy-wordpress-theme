@@ -8,7 +8,7 @@
 /**
  * Template tags test case.
  */
-class TemplateTagsTest extends WP_UnitTestCase {
+class TemplateTagsTest extends \Codeception\TestCase\WPTestCase {
 	/**
 	 * Post does not exist then return false
 	 *
@@ -182,4 +182,5 @@ class TemplateTagsTest extends WP_UnitTestCase {
 			$this->assertEquals( $expected_item, get_elapsed_time_string( true, $post->ID ) );
 		}
 	}
+
 }
