@@ -12,7 +12,7 @@
  *
  * @return void
  */
-function jhuy_init() {
+function jhuy_after() {
 	// Load translation domain.
 	load_theme_textdomain( 'jhuy' );
 
@@ -66,8 +66,8 @@ function jhuy_init() {
 					'page_blog',
 					'page_contact',
 					'page_test' => array(
-						'type' => 'post_type',
-						'object' => 'page',
+						'type'      => 'post_type',
+						'object'    => 'page',
 						'object_id' => '{{test}}',
 					),
 				),
@@ -99,7 +99,7 @@ function jhuy_init() {
 	$starter_content = apply_filters( 'jhuy_starter_content', $starter_content );
 	add_theme_support( 'starter-content', $starter_content );
 }
-add_action( 'after_setup_theme', 'jhuy_init' );
+add_action( 'after_setup_theme', 'jhuy_after' );
 
 /**
  * Initialize widget area
@@ -136,7 +136,7 @@ function jhuy_widgets_init() {
 	) );
 }
 add_action( 'widgets_init', 'jhuy_widgets_init' );
- 
+
 /**
  * Enqueue scripts and styles.
  *
@@ -147,13 +147,6 @@ function jhuy_scripts() {
 
 	// Get theme version.
 	$theme_version = wp_get_theme()->get( 'Version' );
-
-	/**
-	 * Developer use only
-	 * Force WordPress to load stylesheet
-	 *
-	 */
-	$theme_version = '1.0';
 
 	// Theme stylesheet.
 	wp_enqueue_style( $parent_style, get_stylesheet_uri(),

@@ -11,7 +11,7 @@
 ?>
 <div class="wrap">
 	<h1>jHuy Theme Settings</h1>
-	<form method="post" action="options.php" novalidate="novalidate">
+	<form id="themeSettings" method="post" action="options.php" novalidate="novalidate">
 		<?php
 		settings_fields( 'jhuy-theme-options-fields' );
 		do_settings_sections( 'jhuy-theme-options' );

@@ -11,8 +11,8 @@
 <?php get_header(); ?>
 <div class="intro">
 	<section class="container intro-container">
-		<p class="intro-quote"><?php echo get_option( 'jhuy_quote' ); ?></p>
-		<img class="intro-image" src="<?php echo esc_url( get_avatar_url( get_option( 'admin_email' ) ) ); ?>" alt="profile_pic">
+		<p class="intro-quote"><?php echo esc_html( get_option( 'jhuy_quote' ) ); ?></p>
+		<img class="intro-image" src="<?php echo esc_url( get_option( 'jhuy_quote_image' ) ); ?>" alt="jhuy_quote_image">
 	</section>
 </div>
 <main id="main" class="container site-main" role="main">

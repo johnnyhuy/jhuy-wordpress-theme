@@ -30,6 +30,7 @@ function jhuy_settings() {
 
 	// Add options here.
 	add_option( 'jhuy_quote', 'Be Cool.' );
+	add_option( 'jhuy_quote_image', '' );
 
 	// Add sections here.
 	add_settings_section(
@@ -46,11 +47,31 @@ function jhuy_settings() {
 		'jhuy_text_callback',
 		'jhuy-theme-options',
 		'jhuy_section',
-		array( 'label_for' => 'jhuy_quote' )
+		array(
+			'label_for' => 'jhuy_quote',
+			'input_id'  => 'quote',
+		)
+	);
+	add_settings_field(
+		'jhuy_quote_image',
+		__( 'Front Page Quote Image', 'jhuy' ),
+		'jhuy_file_callback',
+		'jhuy-theme-options',
+		'jhuy_section',
+		array(
+			'label_for' => 'jhuy_quote_image',
+			'input_id'  => 'quoteImage',
+			'type'      => 'image',
+		)
 	);
 
 	// Register settings here.
 	register_setting( 'jhuy-theme-options-fields', 'jhuy_quote' );
+	register_setting( 'jhuy-theme-options-fields', 'jhuy_quote_image' );
+
+	// Add scripts and styling.
+	wp_enqueue_script( 'jhuy-admin', get_theme_file_uri( '/assets/js/admin.js' ), array(), null, true );
+	wp_enqueue_style( 'jhuy-admin', get_theme_file_uri( '/assets/css/admin.css' ), array(), null );
 }
 add_action( 'admin_init', 'jhuy_settings' );
 
@@ -89,7 +110,7 @@ function jhuy_options_page() {
  */
 function jhuy_checkbox_callback( $args ) {
 	$options = get_option( $args['label_for'] );
-	echo '<input name="' . $args['label_for'] . '" id="' . $args['label_for'] . '" type="checkbox" value="1" class="code" ' . checked( 1, $options, false ) . ' /> Check for enabling custom help text.';
+	echo '<input name="' . esc_html( $args['label_for'] ) . '" id="' . esc_html( $args['input_id'] ) . '" type="checkbox" value="1" class="code" ' . checked( 1, $options, false ) . ' /> Check for enabling custom help text.';
 }
 
 /**
@@ -99,6 +120,36 @@ function jhuy_checkbox_callback( $args ) {
  * @return void
  */
 function jhuy_text_callback( $args ) {
-	$options = get_option( $args['label_for'] );
-	echo '<input name="' . $args['label_for'] . '" id="' . $args['label_for'] . '" type="text" value="' . $options . '" />';
+	$options = get_option( esc_html( $args['label_for'] ) );
+	echo '<input name="' . esc_html( $args['label_for'] ) . '" id="' . esc_html( $args['input_id'] ) . '" type="text" value="' . esc_html( $options ) . '" />';
+}
+
+/**
+ * Output file upload input.
+ *
+ * @param array $args an array of arguments.
+ * @return void
+ */
+function jhuy_file_callback( $args ) {
+	$label_for = isset( $args['label_for'] ) ? $args['label_for'] : 'label';
+	$input_id  = isset( $args['input_id'] ) ? $args['input_id'] : 'inputId';
+	$type      = isset( $args['type'] ) ? $args['type'] : 'file';
+	$options   = get_option( $args['label_for'] );
+
+	echo '<input id="' . esc_html( $input_id ) . '" 
+	class="upload-file-url" 
+	name="' . esc_html( $label_for ) . '" 
+	id="' . esc_html( $label_for ) . '" 
+	type="text" value="' . esc_html( $options ) . '" />';
+	echo '<p class="submit">';
+	echo '<a href="#" class="button button-primary upload-file">Upload Media</a>';
+	echo '</p>';
+
+	if ( 'image' === $type ) {
+		echo '<section class="upload-image-container">';
+		echo '<img class="upload-image upload-image-lrg" alt="' . esc_html( $label_for ) . '" src="' . esc_html( $options ) . '">';
+		echo '<img class="upload-image upload-image-mid" alt="' . esc_html( $label_for ) . '" src="' . esc_html( $options ) . '">';
+		echo '<img class="upload-image upload-image-sml" alt="' . esc_html( $label_for ) . '" src="' . esc_html( $options ) . '">';
+		echo '</section>';
+	}
 }
