@@ -70,6 +70,7 @@ function jhuy_settings() {
 	register_setting( 'jhuy-theme-options-fields', 'jhuy_quote_image' );
 
 	// Add scripts and styling.
+	wp_enqueue_script( 'jhuy-head', get_theme_file_uri( '/assets/js/head.js' ), array(), null, true );
 	wp_enqueue_script( 'jhuy-admin', get_theme_file_uri( '/assets/js/admin.js' ), array(), null, true );
 	wp_enqueue_style( 'jhuy-admin', get_theme_file_uri( '/assets/css/admin.css' ), array(), null );
 }

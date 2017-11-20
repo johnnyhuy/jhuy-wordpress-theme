@@ -6,13 +6,9 @@ const webpack = require('webpack');
 const WebpackNotifierPlugin = require('webpack-notifier');
 
 module.exports = {
-    entry: [
-        './assets/js/init.js',
-        './assets/sass/init.scss'
-    ],
     output: {
         path: path.resolve(__dirname),
-        filename: './assets/js/bundle.js',
+        filename: './assets/js/[name].js',
         publicPath: '/wp-content/themes/jhuy/'
     },
     module: {

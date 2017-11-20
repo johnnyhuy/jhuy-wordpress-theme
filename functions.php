@@ -168,7 +168,8 @@ function jhuy_scripts() {
 	wp_enqueue_script( 'html5', get_theme_file_uri( '/assets/js/html5.js' ), array(), '3.7.3' );
 	wp_script_add_data( 'html5', 'conditional', 'lt IE 9' );
 
-	// Load WebPack JS bundle file (includes jQuery and other NPM deps.).
+	// Load Webpack JS bundle file (includes jQuery and other NPM deps.).
+	wp_enqueue_script( 'jhuy-head', get_theme_file_uri( '/assets/js/head.js' ), array(), null, true );
 	wp_enqueue_script( 'jhuy-bundle', get_theme_file_uri( '/assets/js/bundle.js' ), array(), null, true );
 }
 add_action( 'wp_enqueue_scripts', 'jhuy_scripts' );

@@ -1,6 +1,0 @@
-{
-    "phpcs.standard": "WordPress",
-    "phpcs.ignore": "./tests/*",
-    "editor.insertSpaces": false,
-    "editor.tabSize": 4
-}

@@ -1,0 +1,17 @@
+.upload-image {
+  margin: 0 6px;
+  padding: 4px;
+  border: 1px #ccc solid; }
+  .upload-image-container {
+    margin: 0 -6px; }
+  .upload-image-lrg {
+    width: 150px; }
+  .upload-image-mid {
+    width: 100px; }
+  .upload-image-sml {
+    width: 50px; }
+
+.upload-file {
+  margin-top: 20px; }
+
+/*# sourceMappingURL=admin.css.map*/

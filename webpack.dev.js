@@ -22,11 +22,21 @@ const proxyConfig = {
 };
 
 module.exports = merge(common, {
+    entry: {
+        'bundle': [
+            './src/js/init.js',
+            './src/sass/init.scss'
+        ],
+        'admin': [
+            './src/js/admin.js',
+            './src/sass/admin.scss'
+        ]
+    },
     devtool: 'inline-source-map',
     module: {
         rules: [{
             test: /\.(scss|sass)$/,
-            exclude: /(node_modules|bower_components)/,
+            exclude: /(node_modules|vendor)/,
             use: [{
                 loader: 'style-loader',
             },{
@@ -54,6 +64,7 @@ module.exports = merge(common, {
         new WriteFilePlugin({
             test: /^(?!.*(hot)).*/,
         }),
+        new webpack.optimize.CommonsChunkPlugin('head')
     ],
     devServer: {
         publicPath: '/wp-content/themes/jhuy/',

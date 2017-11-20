@@ -10,9 +10,16 @@
  */
 class ThemeSettingsCest {
 	public function _before( FunctionalTester $I ) {
+		// Make sure to switch to the theme being tested.
 		switch_theme( 'jhuy' );
-	}
 
+		// Add capability since they are only loaded after one page load.
+		$admin = get_role( 'administrator' );
+
+		// Custom capability.
+		$admin->add_cap( 'manage_theme_options' );
+	}
+	
 	/**
 	 * Ensure admin can change quote via the theme settings.
 	 *
@@ -91,13 +98,6 @@ class ThemeSettingsCest {
 	public function test_admin_should_upload_image( FunctionalTester $I ) {
 		// Login as admin and upload sample image.
 		$I->loginAsAdmin();
-		switch_theme( 'jhuy' );
-		// update_option( 'current_theme', 'jhuy' );
-		// $I->amOnPage( '/wp-admin/media-new.php' );
-		// $I->click( 'browser uploader' );
-		// $I->attachFile( '#async-upload', 'sample_image.png' );
-		// $I->click( 'Upload' );
-		// $I->see('seucc');
 
 		// File configuration.
 		$file = codecept_data_dir() . 'sample_image.png';
@@ -120,9 +120,6 @@ class ThemeSettingsCest {
 				wp_update_attachment_metadata( $attachment_id,  $attachment_data );
 			}
 		}
-
-		// Go to admin panel first to set role capabilities
-		$I->amOnPage( '/wp-admin' );
 		
 		// Go to theme settings and set new image to sample.
 		$new_image     = wp_get_attachment_image_src( $attachment_id )[0];

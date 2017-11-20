@@ -6,7 +6,11 @@ This is my first WordPress theme created for my personal website at [johnnyhuy.c
 
 - Release build (.zip) for normal upload installation. This build will have prebuilt assets.
 
-## Getting Started
+## Development
+
+This project uses the Node package manager to build assets such as Sass. I've also included a VSCode setting to enable php-cs a Code-Sniffer to follow the WordPress standard to further add consistancy in code.
+
+This is an open source project so please feel free to add changes.
 
 ### Prerequisites
 
@@ -14,7 +18,7 @@ This is my first WordPress theme created for my personal website at [johnnyhuy.c
 - WordPress
 - Directory access to WordPress content (e.g. FTP)
 
-### Installing
+### Installation
 
 ***1. Get this theme***
 
@@ -58,13 +62,20 @@ $ npm run prod
 
 Go to your WordPress and select the theme `jHuy`.
 
-## Development
+### Webpack Asset Environment
 
-This project uses the Node package manager to build assets such as Sass. I've also included a VSCode setting to enable php-cs a Code-Sniffer to follow the WordPress standard to further add consistancy in code.
+Most assets are compiled through the Webpack package including such files:
 
-This is an open source project so please feel free to add changes.
+- Theme CSS `src/sass/init.scss` to `style.css`
+- Theme JS `src/js/init.js` to `assets/js/head.js` and `assets/js/bundle.js`
+- Theme settings CSS `src/scss/admin.scss` to `assets/css/admin.css`
+- Theme settings JS `src/js/admin.js` to `assets/js/admin.js`
 
-## Testing
+***Production Use (build to release)***
+
+When building for production use, run `npm run prod` to build from `webpack.prod.js`. This confirguration minifys and extracts CSS from the JS files (includes placing theme styling in `style.css`).
+
+### Testing
 
 I have added [Codeception](http://codeception.com) as the testing framework of choice for this project. The following instructions will demonstrate running and writing tests in regard to the theme. For any further documentation visit these links:
 

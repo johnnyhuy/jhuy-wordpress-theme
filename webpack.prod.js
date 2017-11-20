@@ -4,9 +4,18 @@ const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ExtraneousFileCleanupPlugin = require('webpack-extraneous-file-cleanup-plugin');
 
 module.exports = merge(common, {
     devtool: 'source-map',
+    entry: {
+        'bundle': './src/js/init.js',
+        '../../style': './src/sass/init.scss',
+        'admin': [
+            './src/js/admin.js',
+            './src/sass/admin.scss'
+        ]
+    },
     module: {
         rules: [{
             test: /\.(scss|sass)$/,
@@ -31,8 +40,11 @@ module.exports = merge(common, {
         }],
     },
     plugins: [
+        new ExtraneousFileCleanupPlugin({
+            extensions: ['.js']
+        }),
         new ExtractTextPlugin({
-            filename: 'style.css',
+            filename: 'assets/css/[name].css',
             allChunks: true
         }),
         new webpack.optimize.UglifyJsPlugin({
@@ -45,6 +57,7 @@ module.exports = merge(common, {
             'process.env': {
                 'NODE_ENV': JSON.stringify('production')
             }
-        })
+        }),
+        new webpack.optimize.CommonsChunkPlugin('head')
     ]
 });
