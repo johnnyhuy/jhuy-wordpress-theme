@@ -1,18 +1,18 @@
 .container {
-    margin-left: auto;
-    margin-right: auto;
-    
-    // Change widths of the container
-    //  dependant on the grid breakpoint
-    
-    max-width: container-max-width(sm) - $sidebar-width;
-    width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  
+  // Change widths of the container
+  //  dependant on the grid breakpoint
+  
+  max-width: container-max-width(sm) - $sidebar-width;
+  width: 100%;
 
-    @media (min-width: grid-breakpoint(md)) {
-        max-width: container-max-width(md)- $sidebar-width;
-    }
+  @media (min-width: grid-breakpoint(md)) {
+    max-width: container-max-width(md)- $sidebar-width;
+  }
 
-    @media (min-width: grid-breakpoint(lg)) {
-        max-width: container-max-width(lg) - $sidebar-width;
-    }
+  @media (min-width: grid-breakpoint(lg)) {
+    max-width: container-max-width(lg) - $sidebar-width;
+  }
 }

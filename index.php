@@ -16,8 +16,13 @@
 	</section>
 </div>
 <main id="main" class="container site-main" role="main">
-	<div class="site-blog">
-		<div class="site-blog-bar"></div>
+	<?php if ( is_single() ) : ?>
+		<div class="site-blog">
+	<?php elseif ( is_front_page() || is_home() ) : ?>
+		<div class="site-blog site-blog-bar">
+	<?php else : ?>
+		<div class="site-blog">
+	<?php endif; ?>
 	<?php
 	if ( have_posts() ) {
 

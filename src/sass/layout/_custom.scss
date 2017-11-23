@@ -1,10 +1,10 @@
 .custom {
-    &-header {
-        grid-area: custom-header;
-    }
+  &-header {
+    grid-area: custom-header;
+  }
 
-    &-logo {
-        height: $custom-logo-height;
-        width: $custom-logo-width;
-    }
+  &-logo {
+    height: $custom-logo-height;
+    width: $custom-logo-width;
+  }
 }

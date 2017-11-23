@@ -12,7 +12,7 @@
 
 <?php if ( has_nav_menu( 'right-sidebar' ) ) : ?>
 
-<div id="page" class="site site__sidebar">
+<div id="page" class="site site-sidebar">
 
 <?php else : ?>
 

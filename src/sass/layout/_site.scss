@@ -1,104 +1,106 @@
 .site {
-    display: grid;
-    grid-template-areas: 'site-header' 'site-content';
-    grid-template-columns: auto;
-    grid-template-rows: 100px auto;
-    height: 100%;
+  display: grid;
+  grid-template-areas: 'site-header' 'site-content';
+  grid-template-columns: auto;
+  grid-template-rows: 100px auto;
+  height: 100%;
 
-    &-sidebar {
-        grid-template-areas: 'site-header site-navigation' 'site-content site-navigation';
-        grid-template-columns: auto $sidebar-width;
-    }
+  &-sidebar {
+    grid-template-areas: 'site-header site-navigation' 'site-content site-navigation';
+    grid-template-columns: auto $sidebar-width;
+  }
 
-    &-blog {
-        overflow: hidden;
-        padding-left: 40px;
-        position: relative;
+  &-blog {
+    overflow: hidden;
+    padding-left: 40px;
+    position: relative;
 
-        &-bar {
-            &:before {
-                background-color: $gray-100;
-                border-radius: 4px;
-                content: '';
-                height: 100%;
-                left: 17px;
-                margin-bottom: 10px;
-                position: absolute;
-                top: 0; 
-                width: 6px;
-            }
-        }
-
-        &-dot {
-            &:before {
-                background-color: theme-color('primary');
-                border-radius: 100%;
-                content: '';
-                height: 12px;
-                left: -26px;
-                position: absolute;
-                top: 46px;
-                width: 12px;
-            }
-        }
-    }
-
-    &-header {
-        align-items: center;
-        background: theme-color('primary');
-        display: flex;
-        grid-area: site-header;
-        height: 100px;
-    }
-
-    &-content {
-        grid-area: site-content;
+    &-bar {
+      &:before {
+        background-color: $gray-100;
+        border-radius: 4px;
+        content: '';
         height: 100%;
-        position: relative;
+        left: 17px;
+        margin-bottom: 10px;
+        position: absolute;
+        top: 0;
+        width: 6px;
+      }
     }
 
-    &-footer {
-        background-color: $gray-800;
-        padding-top: 40px;
+    &-dot {
+      &:before {
+        background-color: theme-color('primary');
+        border-radius: 100%;
+        content: '';
+        height: 12px;
+        left: -42px;
+        position: absolute;
+        top: 10px;
+        width: 12px;
+      }
     }
+  }
 
-    &-main {
-        margin-bottom: $grid-gutter-width;
-        margin-top: $grid-gutter-width;
-        overflow: hidden;
-    }
+  &-header {
+    align-items: center;
+    background: theme-color('primary');
+    display: flex;
+    grid-area: site-header;
+    height: 100px;
+  }
 
-    &-navigation {
-        display: flex;
-        grid-area: site-navigation;
-        justify-content: flex-start;
+  &-content {
+    display: flex;
+    flex-direction: column;
+    grid-area: site-content;
+    min-height: 100%;
+    position: relative;
+  }
 
-        .menu {
-            width: 100%;
+  &-footer {
+    background-color: $gray-800;
+    padding-top: 40px;
+  }
 
-            &-item-link {
-                color: $white;
-                display: block;
-                font-family: 'Roboto';
-                font-weight: 300;
-                padding: 20px;
-                text-decoration: none;
+  &-main {
+    flex: 1;
+    margin-bottom: $grid-gutter-width;
+    margin-top: $grid-gutter-width;
+  }
 
-                &:hover {
-                    background-color: $gray-800;
-                }
-            }
+  &-navigation {
+    display: flex;
+    grid-area: site-navigation;
+    justify-content: flex-start;
+
+    .menu {
+      width: 100%;
+
+      &-item-link {
+        color: $white;
+        display: block;
+        font-family: 'Roboto';
+        font-weight: 300;
+        padding: 20px;
+        text-decoration: none;
+
+        &:hover {
+          background-color: $gray-800;
         }
+      }
     }
+  }
 
-    &-title {
-        &-link {
-            color: $white;
-            text-decoration: none;
+  &-title {
+    &-link {
+      color: $white;
+      text-decoration: none;
 
-            &:hover {
-                color: $white;
-            }
-        }
+      &:hover {
+        color: $white;
+      }
     }
+  }
 }

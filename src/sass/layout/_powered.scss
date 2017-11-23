@@ -1,18 +1,18 @@
 .powered {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
 
-    &-text {
-        color: $white;
-        font-family: 'Roboto';
-        font-size: 1.6rem;
-        font-style: italic;
-        font-weight: 400;
-    }
+  &-text {
+    color: $white;
+    font-family: 'Roboto';
+    font-size: 1.6rem;
+    font-style: italic;
+    font-weight: 400;
+  }
 
-    &-image {
-        height: 40px;
-    }
+  &-image {
+    height: 40px;
+  }
 }

@@ -74,6 +74,19 @@ function jhuy_after() {
 			),
 		),
 
+		// Widgets.
+		'widgets' => array(
+			'footer-left' => array(
+				'text_about',
+			),
+			'footer-middle' => array(
+				'text_business_info',
+			),
+			'footer-right' => array(
+				'search',
+			),
+		),
+
 		// Default posts (pages).
 		'posts'     => array(
 			'home',

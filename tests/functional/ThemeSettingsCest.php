@@ -120,13 +120,13 @@ class ThemeSettingsCest {
 				wp_update_attachment_metadata( $attachment_id,  $attachment_data );
 			}
 		}
-		
+
 		// Go to theme settings and set new image to sample.
 		$new_image     = wp_get_attachment_image_src( $attachment_id )[0];
 		$form_settings = array( 'jhuy_quote_image' => $new_image );
 		$I->amOnPage( '/wp-admin/themes.php?page=jhuy-theme-options' );
 		$I->submitForm( '#themeSettings', $form_settings );
-		
+
 		// Check if image exists.
 		$I->amOnPage( $new_image );
 		$I->seeResponseCodeIs( 200 );
@@ -141,7 +141,7 @@ class ThemeSettingsCest {
 		// Check if the image exists in database.
 		$I->seeInDatabase( 'wp_options', array(
 			'option_name'  => 'jhuy_quote_image',
-			'option_value' => get_option( 'jhuy_quote_image' ),
+			'option_value' => $new_image,
 		) );
 	}
 }

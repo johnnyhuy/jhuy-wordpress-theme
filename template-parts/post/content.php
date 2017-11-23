@@ -2,6 +2,10 @@
 /**
  * Template part used to display post content
  * This is the default content file
+ *
+ * @package WordPress
+ * @subpackage jHuy
+ * @since 1.0
  */
 
 ?>
@@ -14,8 +18,7 @@
 			if ( is_single() ) {
 				the_title( '<h1 class="entry-title">', '</h1>' );
 			} elseif ( is_front_page() || is_home() ) {
-				the_title( '<h3 class="entry-title"><a class="entry-title-link" href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
-				echo '<div class="site-blog-dot"></div>';
+				the_title( '<h3 class="entry-title site-blog-dot"><a class="entry-title-link" href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
 			} else {
 				the_title( '<h3 class="entry-title"><a class="entry-title-link" href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
 			}

@@ -1,14 +1,14 @@
 .widget {
-    &-area {
-        margin-left: -$grid-gutter-width;
-        margin-right: -$grid-gutter-width;
-    }
+  &-area {
+    margin-left: -$grid-gutter-width;
+    margin-right: -$grid-gutter-width;
+  }
 
-    &-column {
-        padding: 0 $grid-gutter-width;
-    }
+  &-column {
+    padding: 0 $grid-gutter-width;
+  }
 
-    &-title {
-        margin-bottom: 6px;
-    }
+  &-title {
+    margin-bottom: 6px;
+  }
 }

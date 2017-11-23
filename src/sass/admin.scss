@@ -3,29 +3,29 @@
 @import 'config/variables';
 
 .upload {
-    &-image {
-        margin: 0 6px;
-        padding: 4px;
-        border: 1px $gray-200 solid;
+  &-image {
+    margin: 0 6px;
+    padding: 4px;
+    border: 1px $gray-200 solid;
 
-        &-container {
-            margin: 0 -6px;
-        }
-        
-        &-lrg {
-            width: 150px;
-        }
-        
-        &-mid {
-            width: 100px;
-        }
-        
-        &-sml {
-            width: 50px;
-        }
+    &-container {
+      margin: 0 -6px;
     }
     
-    &-file {
-        margin-top: 20px;
+    &-lrg {
+      width: 150px;
     }
+    
+    &-mid {
+      width: 100px;
+    }
+    
+    &-sml {
+      width: 50px;
+    }
+  }
+  
+  &-file {
+    margin-top: 20px;
+  }
 }

@@ -1,9 +1,14 @@
 .footer {
-    &-widget-area {
-        color: $white;
-        display: flex;
-        justify-content: space-between;
-        padding-bottom: 40px;
-        padding-top: 35px;
-    }
+  &-widget-area {
+    color: $white;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 40px;
+    padding-top: 35px;
+  }
+
+  &-widget {
+    flex: 1;
+    width: auto;
+  }
 }

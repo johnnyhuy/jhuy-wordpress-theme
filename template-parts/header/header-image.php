@@ -3,6 +3,10 @@
  * Show header image
  *
  * Custom header markup is used for the customizer
+ *
+ * @package WordPress
+ * @subpackage jHuy
+ * @since 1.0
  */
 
 ?>

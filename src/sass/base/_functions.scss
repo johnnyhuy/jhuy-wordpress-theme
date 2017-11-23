@@ -1,39 +1,39 @@
 // Get color Sass maps
 @function color($key: 'blue') {
-    @if not map-has-key($colors, $key) {
-        @warn "Key `#{$key}` not found in #{$colors} map.";
-    }
-    @return map-get($colors, $key);
+  @if not map-has-key($colors, $key) {
+    @warn "Key `#{$key}` not found in #{$colors} map.";
+  }
+  @return map-get($colors, $key);
 }
 
 // Get theme colors
 @function theme-color($key: 'primary') {
-    @if not map-has-key($theme-colors, $key) {
-        @warn "Key `#{$key}` not found  in #{$theme-colors} map.";
-    }
-    @return map-get($theme-colors, $key);
+  @if not map-has-key($theme-colors, $key) {
+    @warn "Key `#{$key}` not found  in #{$theme-colors} map.";
+  }
+  @return map-get($theme-colors, $key);
 }
 
 // Get grayscale shades
 @function grayscale($key: 100) {
-    @if not map-has-key($grays, $key) {
-        @warn "Key `#{$key}` not found  in #{$grays} map.";
-    }
-    @return map-get($grays, $key);
+  @if not map-has-key($grays, $key) {
+    @warn "Key `#{$key}` not found  in #{$grays} map.";
+  }
+  @return map-get($grays, $key);
 }
 
 // Get max width of containers
 @function container-max-width($key: sm) {
-    @if not map-has-key($container-max-widths, $key) {
-        @warn "Key `#{$key}` not found  in #{$container-max-widths} map.";
-    }
-    @return map-get($container-max-widths, $key);
+  @if not map-has-key($container-max-widths, $key) {
+    @warn "Key `#{$key}` not found  in #{$container-max-widths} map.";
+  }
+  @return map-get($container-max-widths, $key);
 }
 
 // Get grid breakpoint
 @function grid-breakpoint($key: xs) {
-    @if not map-has-key($grid-breakpoints, $key) {
-        @warn "Key `#{$key}` not found  in #{$grid-breakpoints} map.";
-    }
-    @return map-get($grid-breakpoints, $key);
+  @if not map-has-key($grid-breakpoints, $key) {
+    @warn "Key `#{$key}` not found  in #{$grid-breakpoints} map.";
+  }
+  @return map-get($grid-breakpoints, $key);
 }
