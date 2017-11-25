@@ -27,8 +27,9 @@
     "gsap": "^1.20.2",
     "hamburgers": "^0.9.1",
     "jquery": "^3.2.1",
-    "node-sass": "^4.7.1",
+    "node-sass": "^4.7.2",
     "open-browser-webpack-plugin": "0.0.5",
+    "open-iconic": "^1.1.1",
     "sass-loader": "^6.0.6",
     "scrollmagic": "^2.0.5",
     "style-loader": "^0.18.2",
@@ -38,8 +39,7 @@
     "webpack-dev-server": "^2.9.4",
     "webpack-extraneous-file-cleanup-plugin": "^1.0.3",
     "webpack-merge": "^4.1.1",
-    "webpack-notifier": "^1.5.0",
-    "write-file-webpack-plugin": "^4.2.0"
+    "webpack-notifier": "^1.5.0"
   },
   "dependencies": {}
 }

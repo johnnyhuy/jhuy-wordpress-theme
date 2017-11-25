@@ -7,7 +7,6 @@ const common = require('./webpack.common.js');
 // Other
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 const DashboardPlugin = require('webpack-dashboard/plugin');
-const WriteFilePlugin = require('write-file-webpack-plugin');
 
 // Setup proxy to link webpack dev server with other host (e.g. WAMP or LAMP setups).
 const proxyConfig = {
@@ -61,9 +60,6 @@ module.exports = merge(common, {
         }),
         new DashboardPlugin(),
         new webpack.NamedModulesPlugin(),
-        new WriteFilePlugin({
-            test: /^(?!.*(hot)).*/,
-        }),
         new webpack.optimize.CommonsChunkPlugin('head')
     ],
     devServer: {

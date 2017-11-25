@@ -9,30 +9,27 @@ module.exports = {
     output: {
         path: path.resolve(__dirname),
         filename: './assets/js/[name].js',
-        publicPath: '/wp-content/themes/jhuy/'
+        publicPath: '/wp-content/themes/jhuy'
     },
     module: {
         rules: [{
             test: /\.js$/,
-            exclude: /(node_modules|bower_components)/,
             use: {
                 loader: 'babel-loader'
             }
         }, {
             test: /\.(jpe?g|png|gif|svg)$/i,
-            exclude: /(node_modules|bower_components)/,
             loader: 'file-loader',
             query:{
                 limit: 8192,
-                name: '/assets/images/[ext]/[name].[ext]?[hash]',
+                name: '/assets/images/[ext]/[name].[ext]',
             }
         }, {
-            test: /\.(woff(2)?|ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-            exclude: /(node_modules|bower_components)/,
+            test: /\.(woff(2)?|ttf|eot|otf)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
             loader: 'url-loader',
             query: {
                 limit: 8192,
-                name: '/assets/fonts/[name].[ext]?[hash]',
+                name: '/assets/fonts/[name].[ext]',
                 emitFile: false
             }
         }]

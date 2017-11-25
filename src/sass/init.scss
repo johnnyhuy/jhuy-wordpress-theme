@@ -16,6 +16,10 @@
 @import 'base/functions';
 @import 'config/variables';
 
+// Load vendor files
+$iconic-font-path: '~open-iconic/font/fonts/';
+@import '~open-iconic/font/css/open-iconic';
+
 // Base CSS (order dependant)
 @import 'base/reset';
 @import 'base/base';

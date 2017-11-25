@@ -1,14 +1,5 @@
 .site {
-  display: grid;
-  grid-template-areas: 'site-header' 'site-content';
-  grid-template-columns: auto;
-  grid-template-rows: 100px auto;
-  height: 100%;
-
-  &-sidebar {
-    grid-template-areas: 'site-header site-navigation' 'site-content site-navigation';
-    grid-template-columns: auto $sidebar-width;
-  }
+  position: relative;
 
   &-blog {
     overflow: hidden;
@@ -74,7 +65,12 @@
   &-navigation {
     display: flex;
     grid-area: site-navigation;
+    height: 100%;
     justify-content: flex-start;
+    position: fixed;
+    right: 0;
+    width: 200px;
+    z-index: 100;
 
     .menu {
       width: 100%;
@@ -83,7 +79,7 @@
         color: $white;
         display: block;
         font-family: 'Roboto';
-        font-weight: 300;
+        font-weight: 400;
         padding: 20px;
         text-decoration: none;
 
