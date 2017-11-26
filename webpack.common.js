@@ -8,8 +8,8 @@ const WebpackNotifierPlugin = require('webpack-notifier');
 module.exports = {
     output: {
         path: path.resolve(__dirname),
-        filename: './assets/js/[name].js',
-        publicPath: '/wp-content/themes/jhuy'
+        filename: 'assets/js/[name].js',
+        publicPath: '/wp-content/themes/jhuy/'
     },
     module: {
         rules: [{
@@ -22,14 +22,14 @@ module.exports = {
             loader: 'file-loader',
             query:{
                 limit: 8192,
-                name: '/assets/images/[ext]/[name].[ext]',
+                name: 'assets/images/[ext]/[name].[ext]',
             }
         }, {
             test: /\.(woff(2)?|ttf|eot|otf)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
             loader: 'url-loader',
             query: {
                 limit: 8192,
-                name: '/assets/fonts/[name].[ext]',
+                name: 'assets/fonts/[name].[ext]',
                 emitFile: false
             }
         }]
