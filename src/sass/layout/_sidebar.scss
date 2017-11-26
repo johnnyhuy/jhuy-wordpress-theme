@@ -1,3 +1,8 @@
 .sidebar {
   background-color: $gray-900;
+
+  &-menu-button {
+    height: 24px;
+    width: 24px;
+  }
 }

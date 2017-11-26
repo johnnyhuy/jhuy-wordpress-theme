@@ -36,18 +36,18 @@ class IconTest extends \Codeception\TestCase\WPTestCase {
 	}
 
 	/**
-	 * When dimenisions is not set, default to 100 x 100
+	 * When dimenisions is not set, default to no width and height.
 	 *
 	 * @return void
 	 */
-	public function test_icon_should_default_100_by_100() {
+	public function test_icon_should_fallback_no_size() {
 		// Get pin icon form Open Iconic sprite.
 		$icon = jhuy_get_oi_svg( array(
 			'name' => 'pin',
 		) );
 
 		// Create expected SVG output.
-		$svg  = '<svg width="100" height="100" viewBox="0 0 8 8" role="img">';
+		$svg  = '<svg viewBox="0 0 8 8" role="img">';
 		$svg .= '<use style="fill: black" href="' . $this->icon_file . '#pin"></use>';
 		$svg .= '</svg>';
 
@@ -89,7 +89,7 @@ class IconTest extends \Codeception\TestCase\WPTestCase {
 		) );
 
 		// Create expected SVG output.
-		$svg  = '<svg width="100" height="100" viewBox="0 0 8 8" role="img">';
+		$svg  = '<svg viewBox="0 0 8 8" role="img">';
 		$svg .= '<use style="fill: black" href="' . $this->icon_file . '#pin"></use>';
 		$svg .= '</svg>';
 
@@ -119,12 +119,33 @@ class IconTest extends \Codeception\TestCase\WPTestCase {
 			) );
 
 			// Create expected SVG output.
-			$svg  = '<svg width="100" height="100" viewBox="0 0 8 8" role="img">';
+			$svg  = '<svg viewBox="0 0 8 8" role="img">';
 			$svg .= '<use style="fill: ' . $color . '" href="' . $this->icon_file . '#pin"></use>';
 			$svg .= '</svg>';
 
 			// Compare actual to expected.
 			$this->assertEquals( $icon, $svg );
 		}
+	}
+
+	/**
+	 * Be able to set classes in the SVG icon.
+	 *
+	 * @return void
+	 */
+	public function test_icon_should_set_class() {
+		// Get pin icon form Open Iconic sprite.
+		$icon = jhuy_get_oi_svg( array(
+			'name' => 'pin',
+			'class' => 'test-class',
+		) );
+
+		// Create expected SVG output.
+		$svg  = '<svg viewBox="0 0 8 8" role="img">';
+		$svg .= '<use class="test-class" style="fill: black" href="' . $this->icon_file . '#pin"></use>';
+		$svg .= '</svg>';
+
+		// Compare actual to expected.
+		$this->assertEquals( $icon, $svg );
 	}
 }
