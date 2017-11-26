@@ -24,4 +24,25 @@
 
 	</header><!-- .site-header -->
 
+	<?php if ( is_front_page() || is_home() ) : ?>
+
+		<div class="intro">
+			<section class="container intro-container">
+				<p class="intro-quote"><?php echo esc_html( get_option( 'jhuy_quote' ) ); ?></p>
+
+					<?php
+					$quote_image = get_option( 'jhuy_quote_image' );
+
+					if ( empty( $quote_image ) ) {
+						$quote_image = get_template_directory_uri() . '/assets/images/svg/no_image.svg';
+					}
+					?>
+
+					<img class="intro-image" src="<?php echo esc_html( $quote_image ); ?>" alt="jhuy_quote_image">
+
+			</section>
+		</div>
+
+	<?php endif; ?>
+
 	<div id="content" class="site-content">

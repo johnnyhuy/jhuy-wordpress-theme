@@ -37,8 +37,6 @@
 		</div>
 	</footer>
 
-	</div><!-- .site-content -->
-
 </div><!-- .site -->
 
 <?php wp_footer(); ?>
