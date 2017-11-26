@@ -210,3 +210,8 @@ require get_parent_theme_file_path( '/inc/template-tags.php' );
  * Admin panel custom theme settings.
  */
 require get_parent_theme_file_path( '/inc/admin.php' );
+
+/**
+ * Icon functions.
+ */
+require get_parent_theme_file_path( '/inc/icon.php' );

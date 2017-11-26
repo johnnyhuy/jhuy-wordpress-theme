@@ -11,6 +11,9 @@
 ?>
 <div class="wrap">
 	<h1>jHuy Theme Settings</h1>
+
+	<?php settings_errors(); ?>
+
 	<form id="themeSettings" method="post" action="options.php" novalidate="novalidate">
 		<?php
 		settings_fields( 'jhuy-theme-options-fields' );
