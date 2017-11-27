@@ -20,6 +20,7 @@ function jhuy_get_oi_svg( $options ) {
 	$width  = '';
 	$height = '';
 	$class  = '';
+	$fill   = '';
 
 	// When name is empty, error.
 	if ( empty( $options['name'] ) ) {
@@ -35,18 +36,18 @@ function jhuy_get_oi_svg( $options ) {
 	}
 
 	// Set fallback color fill to black.
-	if ( empty( $options['fill'] ) ) {
-		$options['fill'] = 'black';
+	if ( ! empty( $options['fill'] ) ) {
+		$fill = ' style="fill: ' . $options['fill'] . '"';
 	}
 
-	// Check if class exists
+	// Check if class exists.
 	if ( ! empty( $options['class'] ) ) {
 		$class = ' class="' . $options['class'] . '"';
 	}
 
 	// Construct SVG.
-	$svg  = '<svg' . $width . $height . ' viewBox="0 0 8 8" role="img">';
-	$svg .= '<use' . $class . ' style="fill: ' . $options['fill'] . '" href="' . $icon_file . '#' . $options['name'] . '"></use>';
+	$svg  = '<svg' . $class . $width . $height . $fill . ' viewBox="0 0 8 8" role="img">';
+	$svg .= '<use href="' . $icon_file . '#' . $options['name'] . '"></use>';
 	$svg .= '</svg>';
 
 	return $svg;

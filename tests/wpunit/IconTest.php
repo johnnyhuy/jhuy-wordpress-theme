@@ -48,7 +48,7 @@ class IconTest extends \Codeception\TestCase\WPTestCase {
 
 		// Create expected SVG output.
 		$svg  = '<svg viewBox="0 0 8 8" role="img">';
-		$svg .= '<use style="fill: black" href="' . $this->icon_file . '#pin"></use>';
+		$svg .= '<use href="' . $this->icon_file . '#pin"></use>';
 		$svg .= '</svg>';
 
 		// Compare actual to expected.
@@ -70,7 +70,7 @@ class IconTest extends \Codeception\TestCase\WPTestCase {
 
 		// Create expected SVG output.
 		$svg  = '<svg width="200" height="200" viewBox="0 0 8 8" role="img">';
-		$svg .= '<use style="fill: black" href="' . $this->icon_file . '#pin"></use>';
+		$svg .= '<use href="' . $this->icon_file . '#pin"></use>';
 		$svg .= '</svg>';
 
 		// Compare actual to expected.
@@ -90,7 +90,7 @@ class IconTest extends \Codeception\TestCase\WPTestCase {
 
 		// Create expected SVG output.
 		$svg  = '<svg viewBox="0 0 8 8" role="img">';
-		$svg .= '<use style="fill: black" href="' . $this->icon_file . '#pin"></use>';
+		$svg .= '<use href="' . $this->icon_file . '#pin"></use>';
 		$svg .= '</svg>';
 
 		// Compare actual to expected.
@@ -119,8 +119,8 @@ class IconTest extends \Codeception\TestCase\WPTestCase {
 			) );
 
 			// Create expected SVG output.
-			$svg  = '<svg viewBox="0 0 8 8" role="img">';
-			$svg .= '<use style="fill: ' . $color . '" href="' . $this->icon_file . '#pin"></use>';
+			$svg  = '<svg style="fill: ' . $color . '" viewBox="0 0 8 8" role="img">';
+			$svg .= '<use href="' . $this->icon_file . '#pin"></use>';
 			$svg .= '</svg>';
 
 			// Compare actual to expected.
@@ -136,13 +136,13 @@ class IconTest extends \Codeception\TestCase\WPTestCase {
 	public function test_icon_should_set_class() {
 		// Get pin icon form Open Iconic sprite.
 		$icon = jhuy_get_oi_svg( array(
-			'name' => 'pin',
+			'name'  => 'pin',
 			'class' => 'test-class',
 		) );
 
 		// Create expected SVG output.
-		$svg  = '<svg viewBox="0 0 8 8" role="img">';
-		$svg .= '<use class="test-class" style="fill: black" href="' . $this->icon_file . '#pin"></use>';
+		$svg  = '<svg class="test-class" viewBox="0 0 8 8" role="img">';
+		$svg .= '<use href="' . $this->icon_file . '#pin"></use>';
 		$svg .= '</svg>';
 
 		// Compare actual to expected.
