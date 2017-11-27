@@ -17,8 +17,10 @@
 @import 'config/variables';
 
 // Load vendor files
-$iconic-font-path: '~open-iconic/font/fonts/';
+@import 'config/open-iconic';
 @import '~open-iconic/font/css/open-iconic';
+@import 'config/hamburgers';
+@import '~hamburgers/_sass/hamburgers/hamburgers';
 
 // Base CSS (order dependant)
 @import 'base/reset';

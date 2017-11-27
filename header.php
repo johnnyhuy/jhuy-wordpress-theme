@@ -10,13 +10,15 @@
 
 <body <?php body_class(); ?>>
 
-<div id="page" class="site">
+<?php
+if ( has_nav_menu( 'right-sidebar' ) ) {
+	$site_class = 'site site-sidebar';
+} else {
+	$site_class = 'site';
+}
+?>
 
-	<?php if ( has_nav_menu( 'right-sidebar' ) ) : ?>
-
-		<?php get_template_part( 'template-parts/navigation/navigation', 'sidebar' ); ?>
-
-	<?php endif; ?>
+<div id="page" class="<?php echo $site_class; ?>">
 
 	<header id="header" class="site-header" role="banner">
 
@@ -24,10 +26,16 @@
 
 	</header><!-- .site-header -->
 
+	<?php if ( has_nav_menu( 'right-sidebar' ) ) : ?>
+
+		<?php get_template_part( 'template-parts/navigation/navigation', 'sidebar' ); ?>
+
+	<?php endif; ?>
+
 	<?php if ( is_front_page() || is_home() ) : ?>
 
 		<div class="intro">
-			<section class="container intro-container">
+			<section class="container intro-container container-sidebar">
 				<p class="intro-quote"><?php echo esc_html( get_option( 'jhuy_quote' ) ); ?></p>
 
 					<?php

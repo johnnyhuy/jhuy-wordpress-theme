@@ -1,6 +1,7 @@
 .custom {
   &-header {
-    grid-area: custom-header;
+    display: flex;
+    flex-direction: row;
   }
 
   &-logo {

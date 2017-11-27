@@ -9,7 +9,7 @@
 
 ?>
 	<footer class="site-footer" role="contentinfo">
-		<div class="container">
+		<div class="container container-sidebar">
 			<section class="powered">
 				<span class="powered-text">Powered by</span>
 				<a href="https://wordpress.com/" target="_blank">

@@ -9,16 +9,13 @@
 
 ?>
 <nav id="site-navigation" class="site-navigation sidebar" role="navigation" aria-label="<?php esc_attr_e( 'Top Menu', 'twentyseventeen' ); ?>">
-	<?php
-	// TODO:
-	// echo jhuy_get_oi_svg( array(
-	// 	'name'  => 'menu',
-	// 	'class' => 'sidebar-menu-button',
-	// ) );
-	wp_nav_menu( array(
-		'theme_location' => 'right-sidebar',
-		'menu_id'        => 'sidebar',
-		'container'      => false,
-	) );
-	?>
+	<section class="sidebar-menu">
+		<?php
+		wp_nav_menu( array(
+			'theme_location' => 'right-sidebar',
+			'menu_id'        => 'sidebar',
+			'container'      => false,
+		) );
+		?>
+	</section>
 </nav><!-- .site-navigation -->

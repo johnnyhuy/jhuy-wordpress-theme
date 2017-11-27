@@ -10,14 +10,18 @@
 ?>
 <?php get_header(); ?>
 
-	<main id="main" class="container site-main" role="main">
-		<?php if ( is_single() ) : ?>
-			<div class="site-blog">
-		<?php elseif ( is_front_page() || is_home() ) : ?>
-			<div class="site-blog site-blog-bar">
-		<?php else : ?>
-			<div class="site-blog">
-		<?php endif; ?>
+	<main id="main" class="container container-sidebar site-main" role="main">
+
+		<?php
+		if ( is_front_page() || is_home() ) {
+			$blog_class = 'site-blog site-blog-bar';
+		} else {
+			$blog_class = 'site-blog';
+		}
+		?>
+
+		<div class="<?php echo $blog_class; ?>">
+
 		<?php
 		if ( have_posts() ) {
 
