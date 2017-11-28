@@ -2,10 +2,6 @@
   font-size: 62.5%;
 }
 
-html {
-  height: 100%;
-}
-
 body {
   background: linear-gradient(135deg, $body-bg 22px, $gray-100 22px, $gray-100 24px, transparent 24px, transparent 67px, $gray-100 67px, $gray-100 69px, transparent 69px),
   linear-gradient(225deg, $body-bg 22px, $gray-100 22px, $gray-100 24px, transparent 24px, transparent 67px, $gray-100 67px, $gray-100 69px, transparent 69px)0 64px;
@@ -14,7 +10,6 @@ body {
   font-family: $font-family-base;
   font-size: 1.6rem;
   height: 100%;
-  position: relative;
 }
 
 a {
