@@ -6,4 +6,5 @@ vendor/
 *.hot-update.json
 *.hot-update.js
 
+npm-debug.log
 codeception.yml
