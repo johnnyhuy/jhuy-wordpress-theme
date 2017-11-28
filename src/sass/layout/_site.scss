@@ -106,6 +106,10 @@
   }
 
   &-title {
+    font-size: 4rem;
+    font-weight: bold;
+    text-align: center;
+
     &-link {
       color: $white;
       text-decoration: none;

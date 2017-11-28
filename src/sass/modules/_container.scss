@@ -13,6 +13,13 @@
     max-width: container-max-width(lg);
   }
 
+  &-header {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+  }
+
   &-intro {
     align-items: center;
     display: flex;

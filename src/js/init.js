@@ -10,7 +10,7 @@ $('.header-hamburger').click(function (event) {
     // Toggle container widths
     $('.site-main').toggleClass('container-sidebar');
     $('.container-intro').toggleClass('container-sidebar');
-    $('.custom-header').toggleClass('container-sidebar');
+    $('.container-header').toggleClass('container-sidebar');
     $('.site-footer .container').toggleClass('container-sidebar');
 });
 

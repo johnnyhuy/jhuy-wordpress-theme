@@ -7,6 +7,9 @@
 ?>
 <div class="site-branding">
 
+	<div class="custom-header-media">
+		<?php the_custom_header_markup(); ?>
+	</div>
 
 	<?php if ( has_custom_logo() ) : ?>
 
@@ -14,14 +17,12 @@
 
 	<?php else : ?>
 
-		<div class="site-branding-text">
-			<h2 class="site-title">
-				<a class="site-title-link"
-					href="<?php echo esc_url( home_url( '/' ) ); ?>"
-					rel="home"><?php bloginfo( 'name' ); ?></a>
-			</h2><!-- .site-title -->
+		<div class="site-title">
+			<a class="site-title-link"
+				href="<?php echo esc_url( home_url( '/' ) ); ?>"
+				rel="home"><?php bloginfo( 'name' ); ?></a>
 		</div><!-- .site-branding-text -->
 
 	<?php endif; ?>
 
-</div>
+</div><!-- .site-branding -->
