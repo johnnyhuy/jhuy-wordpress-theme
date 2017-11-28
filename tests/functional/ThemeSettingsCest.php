@@ -19,7 +19,7 @@ class ThemeSettingsCest {
 		// Custom capability.
 		$admin->add_cap( 'manage_theme_options' );
 	}
-	
+
 	/**
 	 * Ensure admin can change quote via the theme settings.
 	 *
@@ -95,7 +95,60 @@ class ThemeSettingsCest {
 		$I->seeWpDiePage();
 	}
 
-	public function test_admin_should_upload_image( FunctionalTester $I ) {
+	/**
+	 * Admin is able to toggle the display of quote image.
+	 *
+	 * @param FunctionalTester $I functional tester object.
+	 * @return void
+	 */
+	public function test_admin_can_toggle_quote_image( FunctionalTester $I ) {
+		// Login as an admin.
+		$I->loginAsAdmin();
+
+		// Visit theme settings page.
+		$I->amOnPage( '/wp-admin/themes.php?page=jhuy-theme-options' );
+
+		// Check if description exists.
+		$I->see( 'Check to toggle the display of quote image.' );
+
+		// Disable quote image.
+		$form_settings = array( 'jhuy_toggle_quote_image' => 0 );
+		$I->amOnPage( '/wp-admin/themes.php?page=jhuy-theme-options' );
+		$I->submitForm( '#themeSettings', $form_settings );
+
+		// Check if quote image is disabled in database.
+		$I->seeInDatabase( 'wp_options', array(
+			'option_name'  => 'jhuy_toggle_quote_image',
+			'option_value' => 0,
+		) );
+
+		// Go to front page and see if quote image does not exist.
+		$I->amOnPage( '/' );
+		$I->dontSeeElement( 'img', array( 'alt' => 'jhuy_quote_image' ) );
+
+		// Enable quote image.
+		$form_settings = array( 'jhuy_toggle_quote_image' => 1 );
+		$I->amOnPage( '/wp-admin/themes.php?page=jhuy-theme-options' );
+		$I->submitForm( '#themeSettings', $form_settings );
+
+		// Check if quote image is enabled in database.
+		$I->seeInDatabase( 'wp_options', array(
+			'option_name'  => 'jhuy_toggle_quote_image',
+			'option_value' => 1,
+		) );
+
+		// Go to front page and see if quote image exists.
+		$I->amOnPage( '/' );
+		$I->SeeElement( 'img', array( 'alt' => 'jhuy_quote_image' ) );
+	}
+
+	/**
+	 * Admin should be able to upload quote image.
+	 *
+	 * @param FunctionalTester $I functional tester object.
+	 * @return void
+	 */
+	public function test_admin_should_upload_quote_image( FunctionalTester $I ) {
 		// Login as admin and upload sample image.
 		$I->loginAsAdmin();
 

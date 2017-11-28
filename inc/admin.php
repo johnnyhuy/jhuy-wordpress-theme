@@ -31,6 +31,7 @@ function jhuy_settings() {
 	// Add options here.
 	add_option( 'jhuy_quote', 'This is an example quote.' );
 	add_option( 'jhuy_quote_image', get_template_directory_uri() . '/assets/images/svg/johnnyhuy/logo_emblem_primary_2.svg' );
+	add_option( 'jhuy_toggle_quote_image', 1 );
 
 	// Add sections here.
 	add_settings_section(
@@ -43,7 +44,7 @@ function jhuy_settings() {
 	// Add fields here.
 	add_settings_field(
 		'jhuy_quote',
-		__( 'Front Page Quote', 'jhuy' ),
+		__( 'Quote', 'jhuy' ),
 		'jhuy_text_callback',
 		'jhuy-theme-options',
 		'jhuy_section',
@@ -54,7 +55,7 @@ function jhuy_settings() {
 	);
 	add_settings_field(
 		'jhuy_quote_image',
-		__( 'Front Page Quote Image', 'jhuy' ),
+		__( 'Quote Image', 'jhuy' ),
 		'jhuy_file_callback',
 		'jhuy-theme-options',
 		'jhuy_section',
@@ -64,10 +65,23 @@ function jhuy_settings() {
 			'type'      => 'image',
 		)
 	);
+	add_settings_field(
+		'jhuy_toggle_quote_image',
+		__( 'Toggle Quote Image', 'jhuy' ),
+		'jhuy_checkbox_callback',
+		'jhuy-theme-options',
+		'jhuy_section',
+		array(
+			'label_for'   => 'jhuy_toggle_quote_image',
+			'input_id'    => 'toggleQuoteImage',
+			'description' => 'Check to toggle the display of quote image.',
+		)
+	);
 
 	// Register settings here.
 	register_setting( 'jhuy-theme-options-fields', 'jhuy_quote' );
 	register_setting( 'jhuy-theme-options-fields', 'jhuy_quote_image' );
+	register_setting( 'jhuy-theme-options-fields', 'jhuy_toggle_quote_image' );
 
 	// Add scripts and styling.
 	wp_enqueue_script( 'jhuy-head', get_theme_file_uri( '/assets/js/head.js' ), array(), null, true );
@@ -111,7 +125,16 @@ function jhuy_options_page() {
  */
 function jhuy_checkbox_callback( $args ) {
 	$options = get_option( $args['label_for'] );
-	echo '<input name="' . esc_html( $args['label_for'] ) . '" id="' . esc_html( $args['input_id'] ) . '" type="checkbox" value="1" class="code" ' . checked( 1, $options, false ) . ' /> Check for enabling custom help text.';
+
+	// Build HTML for input.
+	$html  = '<input name="' . esc_html( $args['label_for'] ) . '" type="hidden" value="0">';
+	$html .= '<input name="' . esc_html( $args['label_for'] ) . '" id="' . esc_html( $args['input_id'] ) . '" type="checkbox" value="1" ' . checked( 1, $options, false ) . ' />';
+
+	if ( ! empty( $args['description'] ) ) {
+		$html .= $args['description'];
+	}
+
+	echo $html;
 }
 
 /**
