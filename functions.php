@@ -65,44 +65,34 @@ function jhuy_after() {
 					'page_about',
 					'page_blog',
 					'page_contact',
-					'page_test' => array(
-						'type'      => 'post_type',
-						'object'    => 'page',
-						'object_id' => '{{test}}',
-					),
 				),
 			),
 		),
 
 		// Widgets.
 		'widgets' => array(
-			'footer-left' => array(
+			'footer-left'   => array(
 				'text_about',
 			),
 			'footer-middle' => array(
 				'text_business_info',
 			),
-			'footer-right' => array(
+			'footer-right'  => array(
 				'search',
 			),
 		),
 
 		// Default posts (pages).
-		'posts'     => array(
+		'posts' => array(
 			'home',
 			'about',
 			'contact',
 			'blog',
 			'homepage-section',
-			'test' => array(
-				'post_type'    => 'page',
-				'post_title'   => _x( 'Test', 'jhuy' ),
-				'post_content' => _x( 'Test page', 'jhuy' ),
-			),
 		),
 
 		// Default options.
-		'options'   => array(
+		'options' => array(
 			'show_on_front'  => 'page',
 			'page_on_front'  => '{{home}}',
 			'page_for_posts' => '{{blog}}',
@@ -200,6 +190,23 @@ function add_class_to_menu_anchor( $atts ) {
 	return $atts;
 }
 add_filter( 'nav_menu_link_attributes', 'add_class_to_menu_anchor', 10 );
+
+/**
+ * Custom search form
+ *
+ * @param string $form form to return.
+ * @return $form
+ */
+function jhuy_search_form( $form ) {
+	$form = '<form role="search" method="get" id="searchForm" class="search-form" action="' . home_url( '/' ) . '" >
+		<input type="text" id="searchField" class="search-field" placeholder="Search …" value="' . get_search_query() . '" name="s" id="s" />
+		<input type="submit" id="searchSubmit" class="search-submit" value="' . esc_attr__( 'Search' ) . '" />
+		</div>
+	</form>';
+
+	return $form;
+}
+add_filter( 'get_search_form', 'jhuy_search_form' );
 
 /**
  * Custom template tags for this theme.
