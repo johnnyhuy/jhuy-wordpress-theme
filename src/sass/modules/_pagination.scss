@@ -1,0 +1,43 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: -$grid-gutter-width 0;
+  padding: $grid-gutter-width 0;
+
+  &-arrow {
+    fill: $white;
+    height: 10px;
+    margin: auto 0;
+    width: 10px;
+  }
+
+  .screen-reader-text {
+    display: none;
+  }
+
+  .page-numbers {
+    background-color: theme-color('primary');
+    border-radius: 100%;
+    color: $white;
+    display: inline-block;
+    padding: 4px;
+    text-align: center;
+    text-decoration: none;
+    width: 16px;
+  }
+
+  .current {
+    background-color: theme-color('primary-dark');
+  }
+
+  .nav-links {
+    a {
+      transition: background-color .2s ease-out;
+
+      &:hover {
+        background-color: theme-color('primary-dark');
+        color: $white;
+      }
+    }
+  }
+}

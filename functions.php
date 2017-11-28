@@ -209,6 +209,29 @@ function jhuy_search_form( $form ) {
 add_filter( 'get_search_form', 'jhuy_search_form' );
 
 /**
+ * Get pagination HTML by calling this function.
+ *
+ * @return void
+ */
+function jhuy_get_pagination() {
+	if ( have_posts() ) {
+		$left_arrow  = jhuy_get_oi_svg( array(
+			'name'  => 'arrow-left',
+			'class' => 'pagination-arrow pagination-arrow-left',
+		) );
+		$right_arrow = jhuy_get_oi_svg( array(
+			'name'  => 'arrow-right',
+			'class' => 'pagination-arrow pagination-arrow-right',
+		) );
+
+		the_posts_pagination( array(
+			'prev_text' => $left_arrow . '<span class="screen-reader-text">' . __( 'Previous page', 'jhuy' ) . '</span>',
+			'next_text' => '<span class="screen-reader-text">' . __( 'Next page', 'jhuy' ) . '</span>' . $right_arrow,
+		) );
+	}
+}
+
+/**
  * Custom template tags for this theme.
  */
 require get_parent_theme_file_path( '/inc/template-tags.php' );
