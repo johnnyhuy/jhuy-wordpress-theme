@@ -16,8 +16,10 @@
   }
 
   &-hide {
-    height: 0;
-    overflow: hidden;
+    @media (max-width: grid-breakpoint(md)) {
+      height: 0;
+      overflow: hidden;
+    }
 
     @media (min-width: grid-breakpoint(md)) {
       right: -$sidebar-width;

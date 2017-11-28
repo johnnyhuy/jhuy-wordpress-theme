@@ -1,22 +1,32 @@
 .search {
+  &-form {
+    display: flex;
+    flex-direction: column;
+  }
+
   &-field {
     background-clip: padding-box;
     background-color: $white;
     border: 0;
     border-radius: 4px;
     box-shadow: none;
-    margin-top: 8px;
     outline: none;
     padding: 4px;
-    width: 100%;
   }
 
   &-submit {
     background-color: theme-color('primary');
     border: 0;
     border-radius: 4px;
+    color: $white;
+    font-family: $font-family-base;
+    font-weight: 500;
     margin-top: 8px;
     outline: none;
-    width: 100%;
+    padding: 4px;
+
+    &:hover {
+      background-color: theme-color('primary-light');
+    }
   }
 }
