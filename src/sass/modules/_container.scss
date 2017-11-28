@@ -13,6 +13,18 @@
     max-width: container-max-width(lg);
   }
 
+  &-intro {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px 0;
+
+    @media (min-width: grid-breakpoint(md)) {
+      flex-direction: row;
+    }
+  }
+
   &-sidebar {
     max-width: container-max-width(sm);
     width: 100%;

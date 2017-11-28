@@ -35,7 +35,7 @@ if ( has_nav_menu( 'right-sidebar' ) ) {
 	<?php if ( is_front_page() || is_home() ) : ?>
 
 		<div class="intro">
-			<section class="container intro-container container-sidebar">
+			<section class="container container-intro container-sidebar">
 				<p class="intro-quote"><?php echo esc_html( get_option( 'jhuy_quote' ) ); ?></p>
 
 					<?php
@@ -46,7 +46,11 @@ if ( has_nav_menu( 'right-sidebar' ) ) {
 					}
 					?>
 
-					<img class="intro-image" src="<?php echo esc_html( $quote_image ); ?>" alt="jhuy_quote_image">
+					<?php if ( get_option( 'jhuy_toggle_quote_image' ) ) : ?>
+
+						<img class="intro-image" src="<?php echo esc_html( $quote_image ); ?>" alt="jhuy_quote_image">
+
+					<?php endif; ?>
 
 			</section>
 		</div>
