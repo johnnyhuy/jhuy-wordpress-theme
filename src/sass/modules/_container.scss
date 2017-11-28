@@ -26,10 +26,6 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 15px 0;
-
-    @media (min-width: grid-breakpoint(md)) {
-      flex-direction: row;
-    }
   }
 
   &-sidebar {

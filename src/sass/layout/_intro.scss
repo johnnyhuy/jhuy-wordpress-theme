@@ -14,13 +14,6 @@
     margin-bottom: 15px;
     margin-top: 15px;
     text-align: center;
-    
-    @media (min-width: grid-breakpoint(md)) {
-      margin-bottom: 0;
-      margin-left: 80px;
-      margin-top: 0;
-      text-align: left;
-    }
 
     &:before {
       content: '"';

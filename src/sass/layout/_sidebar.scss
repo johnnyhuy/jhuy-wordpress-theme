@@ -2,10 +2,8 @@
   background-color: $gray-900;
   display: flex;
   flex-direction: column;
-  height: auto;
   justify-content: flex-start;
-  transition: height .2s ease-out,
-  right .2s ease-out;
+  transition: right .2s ease-out;
   
   @media (min-width: grid-breakpoint(md)) {
     height: 100%;
@@ -17,8 +15,7 @@
 
   &-hide {
     @media (max-width: grid-breakpoint(md)) {
-      height: 0;
-      overflow: hidden;
+      display: none;
     }
 
     @media (min-width: grid-breakpoint(md)) {
