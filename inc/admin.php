@@ -29,8 +29,8 @@ function jhuy_settings() {
 	}
 
 	// Add options here.
-	add_option( 'jhuy_quote', 'Be Cool.' );
-	add_option( 'jhuy_quote_image', '' );
+	add_option( 'jhuy_quote', 'This is an example quote.' );
+	add_option( 'jhuy_quote_image', get_template_directory_uri() . '/assets/images/svg/johnnyhuy/logo_emblem_primary_2.svg' );
 
 	// Add sections here.
 	add_settings_section(
