@@ -35,8 +35,7 @@ if ( ! function_exists( 'jhuy_time_link' ) ) :
 		);
 
 		return sprintf(
-			/* translators: %s: post date */
-			__( '<span class="screen-reader-text">Posted </span> %s', 'jhuy' ),
+			'%s',
 			'<a class="entry-date-link" href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 		);
 	}

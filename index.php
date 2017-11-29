@@ -10,66 +10,66 @@
 // Only show pagination when page number is not 1.
 $paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
 
-// Setup custom query to ignore sticky posts.
-$the_query = new WP_Query( array(
-	'post__not_in'   => get_option( 'sticky_posts' ),
-	'posts_per_page' => 5,
-	'paged'          => $paged,
-) );
-
-// Overwrite wp_query global with custom query.
-$wp_query = $the_query;
-
+// Only show blog bar if in blog page (not singular post).
+if ( is_singular() ) {
+	$blog_bar = 'site-blog';
+} else {
+	$blog_bar = 'site-blog site-blog-bar';
+}
 
 ?>
 <?php get_header(); ?>
 
 	<di id="main" class="container container-sidebar site-main" role="main">
 
-		<?php
-		/**
-		 * Only show top pagination
-		 * if page number is not 1 (front page).
-		 */
-		if ( 1 !== $paged ) {
-			jhuy_get_pagination();
-		}
-		?>
+		<?php if ( ! is_singular() ) : ?>
 
-		<div class="site-blog site-blog-sticky">
-
-		<?php
-
-		/**
-		 * Show only sticky posts
-		 * as this will display on all pages.
-		 */
-		$sticky_query = new WP_Query( array( 'post__in' => get_option( 'sticky_posts' ) ) );
-
-		if ( $sticky_query->have_posts() ) {
-
-			/* Start the loop */
-			while ( $sticky_query->have_posts() ) {
-
-				$sticky_query->the_post();
-				get_template_part( 'template-parts/post/content', get_post_format() );
-
+			<?php
+			/**
+			 * Only show top pagination
+			 * if page number is not 1 (front page).
+			 */
+			if ( 1 !== $paged ) {
+				jhuy_get_pagination();
 			}
-		}
-		?>
+			?>
 
-		</div>
+			<div class="site-blog site-blog-sticky">
 
-		<div class="site-blog site-blog-bar">
+			<?php
+
+			/**
+			 * Show only sticky posts
+			 * as this will display on all pages.
+			 */
+			$sticky_query = new WP_Query( array( 'post__in' => get_option( 'sticky_posts' ) ) );
+
+			if ( $sticky_query->have_posts() ) {
+
+				/* Start the loop */
+				while ( $sticky_query->have_posts() ) {
+
+					$sticky_query->the_post();
+					get_template_part( 'template-parts/post/content', get_post_format() );
+
+				}
+			}
+			?>
+
+			</div>
+
+		<?php endif; ?>
+
+		<div class="<?php echo $blog_bar; ?>">
 
 		<?php
-		if ( $the_query->have_posts() ) {
+		if ( have_posts() ) {
 
 
 			/* Start the loop */
-			while ( $the_query->have_posts() ) {
+			while ( have_posts() ) {
 
-				$the_query->the_post();
+				the_post();
 
 				/**
 				 * Use the Post-Formats support module to

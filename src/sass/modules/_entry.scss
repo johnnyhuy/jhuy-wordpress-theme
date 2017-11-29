@@ -21,7 +21,10 @@
   }
 
   &-header {
+    align-items: center;
     position: relative;
+    flex-direction: row;
+    display: flex;
   }
 
   &-meta {
@@ -45,5 +48,11 @@
         color: theme-color('primary-light');
       }
     }
+  }
+
+  &-sticky {
+    fill: theme-color('primary');    
+    margin-right: 6px;
+    width: 18px;
   }
 }

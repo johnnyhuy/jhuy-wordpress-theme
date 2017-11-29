@@ -232,6 +232,17 @@ function jhuy_get_pagination() {
 }
 
 /**
+ * Adjust main query before post.
+ *
+ * @param array $query query object.
+ * @return void
+ */
+function jhuy_pre_get_posts( $query ) {
+	$query->set( 'post__not_in', get_option( 'sticky_posts' ) );
+}
+add_action( 'pre_get_posts', 'jhuy_pre_get_posts' );
+
+/**
  * Custom template tags for this theme.
  */
 require get_parent_theme_file_path( '/inc/template-tags.php' );

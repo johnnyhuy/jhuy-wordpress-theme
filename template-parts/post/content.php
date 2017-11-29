@@ -15,6 +15,14 @@
 		<header class="entry-header">
 
 			<?php
+			if ( is_sticky() ) {
+				echo jhuy_get_oi_svg( array(
+					'name'  => 'pin',
+					'class' => 'entry-sticky',
+				) );
+			}
+
+
 			/**
 			 * Do not show dot next to title if sticky,
 			 * since sticky posts look different
@@ -70,6 +78,7 @@
 			if ( is_single() ) {
 				jhuy_posted_on();
 			} else {
+				echo '<span class="screen-reader-text">posted </span>';
 				echo jhuy_time_link();
 				jhuy_edit_link();
 			};
