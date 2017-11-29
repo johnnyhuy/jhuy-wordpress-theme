@@ -22,7 +22,6 @@
 				) );
 			}
 
-
 			/**
 			 * Do not show dot next to title if sticky,
 			 * since sticky posts look different

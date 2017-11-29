@@ -22,17 +22,17 @@ if ( is_singular() ) {
 
 	<di id="main" class="container container-sidebar site-main" role="main">
 
-		<?php if ( ! is_singular() ) : ?>
+		<?php
+		/**
+		 * Only show top pagination
+		 * if page number is not 1 (front page).
+		 */
+		if ( 1 !== $paged ) {
+			jhuy_get_pagination();
+		}
+		?>
 
-			<?php
-			/**
-			 * Only show top pagination
-			 * if page number is not 1 (front page).
-			 */
-			if ( 1 !== $paged ) {
-				jhuy_get_pagination();
-			}
-			?>
+		<?php if ( ! is_singular() && is_home() ) : ?>
 
 			<div class="site-blog site-blog-sticky">
 
@@ -64,7 +64,6 @@ if ( is_singular() ) {
 
 		<?php
 		if ( have_posts() ) {
-
 
 			/* Start the loop */
 			while ( have_posts() ) {

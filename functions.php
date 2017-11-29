@@ -238,7 +238,9 @@ function jhuy_get_pagination() {
  * @return void
  */
 function jhuy_pre_get_posts( $query ) {
-	$query->set( 'post__not_in', get_option( 'sticky_posts' ) );
+	if ( $query->is_home() && $query->is_main_query() ) {
+		$query->set( 'post__not_in', get_option( 'sticky_posts' ) );
+	}
 }
 add_action( 'pre_get_posts', 'jhuy_pre_get_posts' );
 
