@@ -78,25 +78,6 @@
     margin-top: $grid-gutter-width;
   }
 
-  &-navigation {
-    .menu {
-      width: 100%;
-
-      &-item-link {
-        color: $white;
-        display: block;
-        font-family: 'Roboto';
-        font-weight: 500;
-        padding: 20px;
-        text-decoration: none;
-
-        &:hover {
-          background-color: $gray-800;
-        }
-      }
-    }
-  }
-
   &-sidebar {
     padding-right: 0;
     
