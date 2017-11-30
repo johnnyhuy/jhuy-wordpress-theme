@@ -1,61 +1,64 @@
 $font-directory:  '../../assets/fonts/';
 
+// Roboto
 @font-face {
   font-family: 'Roboto';
   font-weight: 100;
-  src: url( $font-directory + 'Roboto-Thin.ttf') format('truetype');
+  src: url($font-directory + 'Roboto-Thin.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Roboto';
-  src: url( $font-directory + 'Roboto-Regular.ttf') format('truetype');
+  src: url($font-directory + 'Roboto-Regular.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Roboto';
   font-style: italic;
-  src: url( $font-directory + 'Roboto-Italic.ttf') format('truetype');
+  src: url($font-directory + 'Roboto-Italic.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Roboto';
   font-weight: 500;
-  src: url( $font-directory + 'Roboto-Medium.ttf') format('truetype');
+  src: url($font-directory + 'Roboto-Medium.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Roboto';
   font-style: italic;
   font-weight: 500;
-  src: url( $font-directory + 'Roboto-MediumItalic.ttf') format('truetype');
+  src: url($font-directory + 'Roboto-MediumItalic.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Roboto';
   font-weight: bold;
-  src: url( $font-directory + 'Roboto-Bold.ttf') format('truetype');
+  src: url($font-directory + 'Roboto-Bold.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Roboto';
   font-style: italic;
   font-weight: bold;
-  src: url( $font-directory + 'Roboto-BoldItalic.ttf') format('truetype');
+  src: url($font-directory + 'Roboto-BoldItalic.ttf') format('truetype');
 }
 
+// Open Sans
 @font-face {
   font-family: 'Open Sans';
-  src: url( $font-directory + 'OpenSans-Regular.ttf') format('truetype');
+  font-weight: normal;
+  src: url($font-directory + 'OpenSans-Regular.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Open Sans';
   font-weight: 600;
-  src: url( $font-directory + 'OpenSans-SemiBold.ttf') format('truetype');
+  src: url($font-directory + 'OpenSans-SemiBold.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Open Sans';
   font-weight: bold;
-  src: url( $font-directory + 'OpenSans-Bold.ttf') format('truetype');
+  src: url($font-directory + 'OpenSans-Bold.ttf') format('truetype');
 }

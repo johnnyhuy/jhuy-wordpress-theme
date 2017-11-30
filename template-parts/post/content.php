@@ -8,6 +8,37 @@
  * @since 1.0
  */
 
+/**
+ * Do not show dot next to title if sticky,
+ * since sticky posts look different
+ * compared to normal posts.
+ */
+$dot = is_sticky() ? '' : 'site-blog-dot';
+
+/**
+ * Singular post titles look different to
+ * blog content.
+ */
+if ( is_single() ) {
+	$title_start = '<h3 class="entry-title">';
+	$title_end   = '</h3>';
+} elseif ( is_front_page() || is_home() ) {
+	$title_start = '<h3 class="entry-title ' . $dot . '"><a class="entry-title-link" href="' . esc_url( get_permalink() ) . '" rel="bookmark">';
+	$title_end   = '</a></h3>';
+} else {
+	$title_start = '<h3 class="entry-title"><a class="entry-title-link" href="' . esc_url( get_permalink() ) . '" rel="bookmark">';
+	$title_end   = '</a></h3>';
+}
+
+/**
+ * Only show entry-excerpt class
+ * if excerpt exists with post.
+ */
+if ( ! has_excerpt() ) {
+	$entry_class = 'entry-content';
+} else {
+	$entry_class = 'entry-content entry-excerpt';
+}
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -22,36 +53,14 @@
 				) );
 			}
 
-			/**
-			 * Do not show dot next to title if sticky,
-			 * since sticky posts look different
-			 * compared to normal posts.
-			 */
-			$dot = is_sticky() ? '' : 'site-blog-dot';
-
-			/**
-			 * Singular post titles look different to
-			 * blog content.
-			 */
-			if ( is_single() ) {
-				$title_start = '<h1 class="entry-title">';
-				$title_end   = '</h1>';
-			} elseif ( is_front_page() || is_home() ) {
-				$title_start = '<h3 class="entry-title ' . $dot . '"><a class="entry-title-link" href="' . esc_url( get_permalink() ) . '" rel="bookmark">';
-				$title_end   = '</a></h3>';
-			} else {
-				$title_start = '<h3 class="entry-title"><a class="entry-title-link" href="' . esc_url( get_permalink() ) . '" rel="bookmark">';
-				$title_end   = '</a></h3>';
-			}
-
 			the_title( $title_start, $title_end );
 			?>
 
 		</header>
-		<div class="entry-content">
+		<div class="<?php echo $entry_class; ?>">
 
 			<?php
-			if ( is_singular() ) {
+			if ( ! has_excerpt() ) {
 				the_content();
 			} else {
 				the_excerpt();

@@ -2,10 +2,20 @@
   font-size: 62.5%;
 }
 
-html {
-  height: 100%;
+// Anchor.
+a {
+  box-shadow: inset 0 -1px 0 theme-color('primary');
+  color: theme-color('primary');
+  line-height: 1.4;
+  text-decoration: none;
+
+  &:hover {
+    box-shadow: inset 0 -1px 0 theme-color('primary-dark');
+    color: theme-color('primary-dark');
+  }
 }
 
+// Body.
 body {
   background: linear-gradient(135deg, $body-bg 22px, $gray-100 22px, $gray-100 24px, transparent 24px, transparent 67px, $gray-100 67px, $gray-100 69px, transparent 69px),
   linear-gradient(225deg, $body-bg 22px, $gray-100 22px, $gray-100 24px, transparent 24px, transparent 67px, $gray-100 67px, $gray-100 69px, transparent 69px)0 64px;
@@ -14,36 +24,40 @@ body {
   font-family: $font-family-base;
   font-size: 1.6rem;
   height: 100%;
-}
-
-a {
-  color: theme-color('primary');
-
-  &:hover {
-    color: theme-color('primary-dark');
-  }
-}
-
-p {
-  font-size: 1.6rem;
   line-height: 1.4;
 }
 
+// Blockquote.
+blockquote {
+  background-color: $gray-50;
+  border-radius: 4px;
+  color: $gray-900;
+  font-size: 2.4rem;
+  font-style: italic;
+  margin-bottom: 1.4rem;
+  margin-top: 1.4rem;
+  padding: .8rem;
+}
+
+// Headings.
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
+  font-family: $font-family-base;
   font-weight: 500;
+  margin-bottom: 1.8rem;
+  padding-top: 2.8rem;
 }
 
 h1 {
-  font-size: 5rem;
+  font-size: 3.8rem;
 }
 
 h2 {
-  font-size: 4rem;
+  font-size: 3.4rem;
 }
 
 h3 {
@@ -51,13 +65,203 @@ h3 {
 }
 
 h4 {
-  font-size: 2rem;
+  font-size: 2.6rem;
 }
 
 h5 {
-  font-size: 1rem;
+  font-size: 2.2rem;
 }
 
 h6 {
-  font-size: 6rem;
+  font-size: 1.8rem;
+}
+
+// HTML.
+html {
+  height: 100%;
+}
+
+// Lists.
+dl {
+  dt {
+    font-style: $font-family-base;
+    font-weight: bold;
+    margin-bottom: .8rem;
+  }
+
+  dd {
+    padding-bottom: 2.2rem;
+    padding-left: 1.8rem;
+  }
+}
+
+ol {
+  list-style: decimal;
+}
+
+ul {
+  list-style: disc;
+}
+
+ol,
+ul {
+  li {
+    display: list-item;
+    margin-bottom: .4rem;
+    margin-left: 2.4rem;
+    text-align: match-parent;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+}
+
+// Paragraph.
+p {
+  font-family: $font-family-paragraph;
+  font-size: 1.6rem;
+  line-height: 1.4;
+  margin-bottom: 1.6rem;
+}
+
+// Inline text formatting.
+strong {
+  font-weight: bold;
+}
+
+// Table.
+table {
+  border-collapse: collapse;
+  display: table;
+  text-indent: 0;
+  width: 100%;
+}
+
+tbody {
+  display: table-row-group;
+  vertical-align: middle;
+}
+
+thead {
+  display: table-header-group;
+  font-family: $font-family-base;
+  font-weight: bold;
+  vertical-align: middle;
+
+  th {
+    border-bottom: 2px solid $gray-100;
+  }
+}
+
+td,
+th {
+  line-height: 1.4;
+  padding: .8rem;
+  vertical-align: inherit;
+}
+
+td {
+  padding: .8rem;
+}
+
+th {
+  text-align: left;
+}
+
+tr {
+  border-bottom: 1px solid $gray-100;
+  display: table-row;
+  vertical-align: inherit;
+}
+
+// Abbrieviation of text.
+abbr,
+acronym {
+  border-bottom: 1px dotted $gray-400;
+  cursor: help;
+  text-decoration: none;
+}
+
+address {
+  font-family: $font-family-base;
+  font-style: italic;
+  margin-bottom: 1.8rem;
+}
+
+// Big/small text.
+big {
+  font-size: 125%;
+}
+
+small {
+  font-size: 75%;
+}
+
+// Code text.
+code,
+kbd,
+tt,
+var {
+  font-family: $font-family-code;
+}
+
+// Citing text.
+dfn,
+cite,
+em,
+i {
+  font-style: italic;
+}
+
+// Striking through text.
+s,
+strike,
+del {
+  text-decoration: line-through;
+}
+
+hr {
+  border-top: 1px solid $gray-100;
+}
+
+// Insert text.
+mark,
+ins {
+  background: $gray-100;
+  border-radius: 4px;
+  padding-left: .6rem;
+  padding-right: .6rem;
+  text-decoration: none;
+}
+
+// Adding quotes to text.
+q {
+  quotes: '“' '”' '‘' '’';
+
+  &:before {
+    content: open-quote;
+  }
+
+  &:after {
+    content: close-quote;
+  }
+}
+
+// Superscript/subscript.
+sub {
+  bottom: -.25em;
+}
+
+sup {
+  top: -.5em;
+}
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
 }

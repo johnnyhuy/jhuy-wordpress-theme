@@ -1,0 +1,10 @@
+// Admin bar styling.
+.ab {
+  &-item {
+    box-shadow: none;
+
+    &:hover {
+      box-shadow: none;
+    }
+  }
+}

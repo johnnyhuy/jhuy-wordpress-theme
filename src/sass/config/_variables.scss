@@ -20,6 +20,7 @@ $custom-logo-height:        50px;
 //
 
 $white:    #fff !default;
+$gray-50: #f3f3f3 !default;
 $gray-100: #e5e5e5 !default;
 $gray-200: #ccc !default;
 $gray-300: #b2b2b2 !default;
@@ -32,6 +33,7 @@ $gray-900: #1a1a1a !default;
 $black:    #000 !default;
 
 $grays: (
+  50: $gray-50,
   100: $gray-100,
   200: $gray-200,
   300: $gray-300,
@@ -100,6 +102,10 @@ $font-family-sans-serif: 'Roboto', 'Open Sans' !default;
 $font-family-monospace:  'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace !default;
 $font-family-base:       $font-family-sans-serif !default;
 $font-family-second:     'Open Sans' !default;
+
+// Aliases
+$font-family-paragraph :  $font-family-second !default;
+$font-family-code:        $font-family-monospace !default;
 
 // 
 // Grid

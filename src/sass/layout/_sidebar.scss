@@ -27,7 +27,11 @@
     width: 100%;
 
     &-item {
+      list-style: none;
+      margin-left: 0;
+
       &-link {
+        box-shadow: none;
         color: $white;
         display: block;
         font-family: 'Roboto';

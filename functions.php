@@ -245,6 +245,20 @@ function jhuy_pre_get_posts( $query ) {
 add_action( 'pre_get_posts', 'jhuy_pre_get_posts' );
 
 /**
+ * Modify the more text in an excerpt.
+ *
+ * @param string $more excerpt string.
+ * @return string
+ */
+function jhuy_excerpt_more( $more ) {
+	return sprintf( '<a class="entry-excerpt-more" href="%1$s">%2$s</a>',
+		get_permalink( get_the_ID() ),
+		__( '... See More', 'jhuy' )
+	);
+}
+add_filter( 'excerpt_more', 'jhuy_excerpt_more' );
+
+/**
  * Custom template tags for this theme.
  */
 require get_parent_theme_file_path( '/inc/template-tags.php' );
