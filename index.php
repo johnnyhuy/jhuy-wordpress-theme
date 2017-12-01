@@ -17,6 +17,8 @@ if ( is_singular() ) {
 	$blog_bar = 'site-blog site-blog-bar';
 }
 
+$stickies = get_option( 'sticky_posts' );
+
 ?>
 <?php get_header(); ?>
 
@@ -32,7 +34,7 @@ if ( is_singular() ) {
 		}
 		?>
 
-		<?php if ( ! is_singular() && is_home() ) : ?>
+		<?php if ( ! is_singular() && is_home() && $stickies ) : ?>
 
 			<div class="site-blog site-blog-sticky">
 
@@ -42,7 +44,11 @@ if ( is_singular() ) {
 			 * Show only sticky posts
 			 * as this will display on all pages.
 			 */
-			$sticky_query = new WP_Query( array( 'post__in' => get_option( 'sticky_posts' ) ) );
+			$sticky_query = new WP_Query( array(
+				'post_type'           => 'post',
+				'post__in'            => get_option( 'sticky_posts' ),
+				'ignore_sticky_posts' => 1,
+			) );
 
 			if ( $sticky_query->have_posts() ) {
 
@@ -60,7 +66,7 @@ if ( is_singular() ) {
 
 		<?php endif; ?>
 
-		<div class="<?php echo $blog_bar; ?>">
+		<div class="<?php echo esc_html( $blog_bar ); ?>">
 
 		<?php
 		if ( have_posts() ) {
