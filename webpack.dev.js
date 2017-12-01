@@ -16,7 +16,7 @@ const proxyConfig = {
         "protocol": 'http:',
         "port": 80
     },
-    ignorePath: false,
+    ignorePath: true,
     changeOrigin: true,
     secure: false,
 };
@@ -64,10 +64,10 @@ module.exports = merge(common, {
         new webpack.optimize.CommonsChunkPlugin('head'),
         new WriteFilePlugin({
             test: /^(?!.*(hot)).*/,
-        })
+        }),
+        new webpack.HotModuleReplacementPlugin()
     ],
     devServer: {
-        publicPath: '/wp-content/themes/jhuy/',
         headers: {
             "Access-Control-Allow-Origin": "*",
             "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
