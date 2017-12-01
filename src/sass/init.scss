@@ -38,9 +38,12 @@
 
 // Modules (order independant)
 @import 'modules/ab';
+@import 'modules/align';
+@import 'modules/attachment';
 @import 'modules/container';
 @import 'modules/entry';
 @import 'modules/pagination';
 @import 'modules/post';
 @import 'modules/search';
 @import 'modules/widget';
+@import 'modules/wp';

@@ -43,6 +43,15 @@ if ( ! has_excerpt() ) {
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<div class="post-container">
+
+		<?php if ( '' !== get_the_post_thumbnail() && ! is_single() ) : ?>
+			<div class="post-thumbnail">
+				<a href="<?php the_permalink(); ?>">
+					<?php the_post_thumbnail(); ?>
+				</a>
+			</div><!-- .post-thumbnail -->
+		<?php endif; ?>
+
 		<header class="entry-header">
 
 			<?php
@@ -57,6 +66,7 @@ if ( ! has_excerpt() ) {
 			?>
 
 		</header>
+
 		<div class="<?php echo $entry_class; ?>">
 
 			<?php

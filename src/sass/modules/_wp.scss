@@ -1,0 +1,10 @@
+.wp {
+  &-caption {
+    margin-bottom: 1.8rem;
+
+    &-text {
+      color: $gray-400;
+      font-style: italic;
+    }
+  }
+}
