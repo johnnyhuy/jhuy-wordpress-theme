@@ -84,17 +84,16 @@ function jhuy_after() {
 
 		// Default posts (pages).
 		'posts' => array(
-			'home',
+			'blog',
+			'news',
 			'about',
 			'contact',
-			'blog',
-			'homepage-section',
 		),
 
 		// Default options.
 		'options' => array(
 			'show_on_front'  => 'page',
-			'page_on_front'  => '{{home}}',
+			'page_on_front'  => '',
 			'page_for_posts' => '{{blog}}',
 		),
 	);
