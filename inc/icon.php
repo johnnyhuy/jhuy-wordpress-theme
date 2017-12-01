@@ -14,7 +14,7 @@
  * @return string
  */
 function jhuy_get_oi_svg( $options ) {
-	$icon_file = get_theme_file_uri( '/assets/images/svg/open-iconic/open-iconic.svg' );
+	$icon_file = get_template_directory_uri() . '/assets/images/svg/open-iconic/open-iconic.svg';
 
 	// Init empty strings.
 	$width  = '';
