@@ -57,7 +57,7 @@ module.exports = merge(common, {
     },
     plugins: [
         new OpenBrowserPlugin({
-            url: 'http://localhost:3000'
+            url: 'http://localhost'
         }),
         new DashboardPlugin(),
         new webpack.NamedModulesPlugin(),

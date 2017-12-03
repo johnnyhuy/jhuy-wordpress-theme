@@ -208,6 +208,30 @@ function jhuy_search_form( $form ) {
 add_filter( 'get_search_form', 'jhuy_search_form' );
 
 /**
+ * Custom password form.
+ *
+ * @param string $post the post.
+ * @return string
+ */
+function jhuy_password_form( $post ) {
+	// Get post.
+	$post = get_post( $post );
+
+	// Set label.
+	$label = 'pwbox-' . ( empty($post->ID) ? rand() : $post->ID );
+
+	// Build output.
+	$output  = '<form action="' . esc_url( site_url( 'wp-login.php?action=postpass', 'login_post' ) ) . '" class="post-password-form" method="post">';
+	$output .= '<label for="' . $label . '">' . __( 'Password' ) . '</label>';
+	$output .= ' <input class="post-password-field" name="post_password" id="' . $label . '" type="password" size="20" />';
+	$output .= '<input class="post-password-submit" type="submit" name="Submit" value="' . esc_attr_x( 'Enter', 'post password form' ) . '" />';
+	$output .= '</form>';
+
+	return $output;
+}
+add_filter( 'the_password_form', 'jhuy_password_form' );
+
+/**
  * Get pagination HTML by calling this function.
  *
  * @return void
@@ -224,8 +248,8 @@ function jhuy_get_pagination() {
 		) );
 
 		the_posts_pagination( array(
-			'prev_text' => $left_arrow . '<span class="screen-reader-text">' . __( 'Previous page', 'jhuy' ) . '</span>',
-			'next_text' => '<span class="screen-reader-text">' . __( 'Next page', 'jhuy' ) . '</span>' . $right_arrow,
+			'prev_text' => $left_arrow,
+			'next_text' => $right_arrow,
 		) );
 	}
 }

@@ -49,7 +49,15 @@
     position: relative;
   }
 
+  &-lock {
+    fill: theme-color('primary');
+    height: 3rem;
+    margin-right: 8px;
+    margin-top: -8px;
+  }
+
   &-meta {
+    clear: both;
     font-size: 1.4rem;
     font-style: italic;
     margin-top: 8px;

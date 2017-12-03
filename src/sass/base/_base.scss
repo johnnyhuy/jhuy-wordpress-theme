@@ -2,7 +2,6 @@
   font-size: 62.5%;
 }
 
-// Anchor.
 a {
   color: theme-color('primary');
   line-height: 1.4;
@@ -13,7 +12,20 @@ a {
   }
 }
 
-// Body.
+// Abbrieviation of text.
+abbr,
+acronym {
+  border-bottom: 1px dotted $gray-400;
+  cursor: help;
+  text-decoration: none;
+}
+
+address {
+  font-family: $font-family-base;
+  font-style: italic;
+  margin-bottom: 1.8rem;
+}
+
 body {
   background: linear-gradient(135deg, $body-bg 22px, $gray-100 22px, $gray-100 24px, transparent 24px, transparent 67px, $gray-100 67px, $gray-100 69px, transparent 69px),
   linear-gradient(225deg, $body-bg 22px, $gray-100 22px, $gray-100 24px, transparent 24px, transparent 67px, $gray-100 67px, $gray-100 69px, transparent 69px)0 64px;
@@ -25,7 +37,6 @@ body {
   line-height: 1.4;
 }
 
-// Blockquote.
 blockquote {
   background-color: $gray-50;
   border-radius: 4px;
@@ -74,9 +85,13 @@ h6 {
   font-size: 1.8rem;
 }
 
-// HTML.
 html {
   height: 100%;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
 }
 
 // Lists.
@@ -116,12 +131,20 @@ ul {
 
 }
 
-// Paragraph.
 p {
   font-family: $font-family-paragraph;
   font-size: 1.6rem;
   line-height: 1.4;
   margin-bottom: 1.6rem;
+}
+
+pre {
+  background-color: $gray-100;
+  border-radius: 4px;
+  font-family: $font-family-monospace;
+  margin-bottom: 1.6rem;
+  overflow: auto;
+  padding: 8px;
 }
 
 // Inline text formatting.
@@ -172,20 +195,6 @@ tr {
   border-bottom: 1px solid $gray-100;
   display: table-row;
   vertical-align: inherit;
-}
-
-// Abbrieviation of text.
-abbr,
-acronym {
-  border-bottom: 1px dotted $gray-400;
-  cursor: help;
-  text-decoration: none;
-}
-
-address {
-  font-family: $font-family-base;
-  font-style: italic;
-  margin-bottom: 1.8rem;
 }
 
 // Big/small text.
@@ -262,9 +271,4 @@ sup {
   line-height: 0;
   position: relative;
   vertical-align: baseline;
-}
-
-img {
-  height: auto;
-  max-width: 100%;
 }

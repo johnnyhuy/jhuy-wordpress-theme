@@ -11,6 +11,14 @@
     width: 10px;
   }
 
+  a {
+    box-shadow: none;
+
+    &:hover {
+      box-shadow: none;
+    }
+  }
+
   .screen-reader-text {
     display: none;
   }
@@ -24,21 +32,16 @@
     padding: 4px;
     text-align: center;
     text-decoration: none;
+    transition: background-color .2s ease-out;
     width: 16px;
+
+    &:hover {
+      background-color: theme-color('primary-dark');
+      color: $white;
+    }
   }
 
   .current {
     background-color: theme-color('primary-dark');
-  }
-
-  .nav-links {
-    a {
-      transition: background-color .2s ease-out;
-
-      &:hover {
-        background-color: theme-color('primary-dark');
-        color: $white;
-      }
-    }
   }
 }

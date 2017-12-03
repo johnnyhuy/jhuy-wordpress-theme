@@ -62,6 +62,13 @@ if ( ! has_excerpt() ) {
 				) );
 			}
 
+			if ( get_post_field( 'post_password' ) ) {
+				echo jhuy_get_oi_svg( array(
+					'name'  => 'lock-locked',
+					'class' => 'entry-lock',
+				) );
+			}
+
 			the_title( $title_start, $title_end );
 			?>
 
@@ -72,6 +79,24 @@ if ( ! has_excerpt() ) {
 			<?php
 			if ( ! has_excerpt() ) {
 				the_content();
+
+				$left_arrow  = jhuy_get_oi_svg( array(
+					'name'  => 'arrow-left',
+					'class' => 'pagination-arrow pagination-arrow-left',
+				) );
+				$right_arrow = jhuy_get_oi_svg( array(
+					'name'  => 'arrow-right',
+					'class' => 'pagination-arrow pagination-arrow-right',
+				) );
+
+				wp_link_pages( array(
+					'before' => '<nav class="navigation pagination" role="navigation">',
+					'after' => '</nav>',
+					'link_before' => '<span class="page-numbers">',
+					'link_after' => '</span>',
+					'next_or_number' => 'number',
+					'separator' => '&nbsp',
+				) );
 			} else {
 				the_excerpt();
 			}
