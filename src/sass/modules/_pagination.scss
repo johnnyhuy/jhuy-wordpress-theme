@@ -12,6 +12,7 @@
   }
 
   a {
+    background-color: theme-color('primary');
     box-shadow: none;
 
     &:hover {
@@ -19,13 +20,30 @@
     }
   }
 
+  span {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  a,
+  span {
+    border-radius: 100%;
+  }
+
+  .dots {
+    background-color: theme-color('primary');
+  }
+
   .screen-reader-text {
     display: none;
   }
 
+  > .page-numbers {
+    background-color: theme-color('primary-dark');
+  }
+
   .page-numbers {
-    background-color: theme-color('primary');
-    border-radius: 100%;
     color: $white;
     display: inline-block;
     line-height: 1;
