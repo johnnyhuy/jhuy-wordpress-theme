@@ -26,22 +26,20 @@ if ( post_password_required() ) {
 	<?php if ( have_comments() ) : ?>
 		<h2 class="comments-title">
 			<?php
+			// Get count of comments for this post.
 			$comments_number = get_comments_number();
-			if ( '1' === $comments_number ) {
-				printf( esc_html_x( 'One Reply to &ldquo;%s&rdquo;', 'comments title', 'jhuy' ), get_the_title() );
-			} else {
-				printf(
-					_nx(
-						'%1$s Reply to &ldquo;%2$s&rdquo;',
-						'%1$s Replies to &ldquo;%2$s&rdquo;',
-						$comments_number,
-						'comments title',
-						'jhuy'
-					),
-					esc_html( number_format_i18n( $comments_number ) ),
-					get_the_title()
-				);
-			}
+
+			// Print comment section title.
+			printf(
+				_nx(
+					'%1$s Comment',
+					'%1$s Comments',
+					$comments_number,
+					'comments title',
+					'jhuy'
+				),
+				esc_html( number_format_i18n( $comments_number ) )
+			);
 			?>
 		</h2>
 
@@ -49,6 +47,7 @@ if ( post_password_required() ) {
 			<?php
 			wp_list_comments( array(
 				'avatar_size' => 100,
+				'callback'    => 'jhuy_list_comments_callback',
 				'style'       => 'ol',
 				'short_ping'  => true,
 				'reply_text'  => jhuy_get_oi_svg( array( 'name' => 'arrow-thick-left' ) ),

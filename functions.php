@@ -282,6 +282,35 @@ function jhuy_excerpt_more( $more ) {
 add_filter( 'excerpt_more', 'jhuy_excerpt_more' );
 
 /**
+ * Custom callback for list comments in posts.
+ *
+ * @param object $comment comments object needed to display.
+ * @param array  $args arguments.
+ * @param string $depth depth of comments.
+ * @return void
+ */
+function jhuy_list_comments_callback( $comment, $args, $depth ) {
+	?>
+	<li id="comment-<?php comment_ID(); ?>" <?php comment_class(); ?>>
+		<article id="comment-article-<?php comment_ID(); ?>" class="comment-body">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+
+				</div><!-- .comment-author -->
+				<div class="comment-metadata">
+				</div><!-- .comment-metadata -->
+			</footer>
+			<div class="comment-content">
+				<?php comment_text(); ?>
+				<div class="comment-reply">
+				</div><!-- .comment-reply -->
+			</div><!-- .comment-content -->
+		</article>
+	</li><!-- .comment -->
+	<?php
+}
+
+/**
  * Custom template tags for this theme.
  */
 require get_parent_theme_file_path( '/inc/template-tags.php' );
