@@ -1,6 +1,6 @@
 <?php
 /**
- * Class TemplateTagsTest
+ * Class TimeStringTest
  *
  * @package jHuy
  */
@@ -8,7 +8,7 @@
 /**
  * Template tags test case.
  */
-class TemplateTagsTest extends \Codeception\TestCase\WPTestCase {
+class TimeStringTest extends \Codeception\TestCase\WPTestCase {
 	/**
 	 * Post does not exist then return false
 	 *
@@ -45,8 +45,14 @@ class TemplateTagsTest extends \Codeception\TestCase\WPTestCase {
 				'post_date'     => $time->format( 'Y-m-d H:i:s' ),
 				'post_modified' => $time->format( 'Y-m-d H:i:s' ),
 			) );
-			$this->assertEquals( $expected_item, get_elapsed_time_string( false, $post->ID ) );
-			$this->assertEquals( $expected_item, get_elapsed_time_string( true, $post->ID ) );
+
+			// Expect elapsed time string on default time format 'Y-m-d H:i:s'.
+			$this->assertEquals( $expected_item, get_elapsed_time_string( $post->post_date ) );
+			$this->assertEquals( $expected_item, get_elapsed_time_string( $post->post_modified ) );
+
+			// Use the custom time format parameter.
+			$this->assertEquals( $expected_item, get_elapsed_time_string( $post->post_date, 'Y-m-d H:i:s' ) );
+			$this->assertEquals( $expected_item, get_elapsed_time_string( $post->post_modified, 'Y-m-d H:i:s' ) );
 		}
 	}
 
@@ -77,8 +83,14 @@ class TemplateTagsTest extends \Codeception\TestCase\WPTestCase {
 				'post_date'     => $time->format( 'Y-m-d H:i:s' ),
 				'post_modified' => $time->format( 'Y-m-d H:i:s' ),
 			) );
-			$this->assertEquals( $expected_item, get_elapsed_time_string( false, $post->ID ) );
-			$this->assertEquals( $expected_item, get_elapsed_time_string( true, $post->ID ) );
+
+			// Expect elapsed time string on default time format 'Y-m-d H:i:s'.
+			$this->assertEquals( $expected_item, get_elapsed_time_string( $post->post_date ) );
+			$this->assertEquals( $expected_item, get_elapsed_time_string( $post->post_modified ) );
+
+			// Use the custom time format parameter.
+			$this->assertEquals( $expected_item, get_elapsed_time_string( $post->post_date, 'Y-m-d H:i:s' ) );
+			$this->assertEquals( $expected_item, get_elapsed_time_string( $post->post_modified, 'Y-m-d H:i:s' ) );
 		}
 	}
 
@@ -101,7 +113,7 @@ class TemplateTagsTest extends \Codeception\TestCase\WPTestCase {
 			'1 day'    => '1 day',
 			'15 days'  => '15 days',
 			'29 days'  => '29 days',
-			'30 days'  => '30 days',
+			'30 days'  => '1 month',
 		);
 
 		foreach ( $test_data as $test_item => $expected_item ) {
@@ -110,8 +122,14 @@ class TemplateTagsTest extends \Codeception\TestCase\WPTestCase {
 				'post_date'     => $time->format( 'Y-m-d H:i:s' ),
 				'post_modified' => $time->format( 'Y-m-d H:i:s' ),
 			) );
-			$this->assertEquals( $expected_item, get_elapsed_time_string( false, $post->ID ) );
-			$this->assertEquals( $expected_item, get_elapsed_time_string( true, $post->ID ) );
+
+			// Expect elapsed time string on default time format 'Y-m-d H:i:s'.
+			$this->assertEquals( $expected_item, get_elapsed_time_string( $post->post_date ) );
+			$this->assertEquals( $expected_item, get_elapsed_time_string( $post->post_modified ) );
+
+			// Use the custom time format parameter.
+			$this->assertEquals( $expected_item, get_elapsed_time_string( $post->post_date, 'Y-m-d H:i:s' ) );
+			$this->assertEquals( $expected_item, get_elapsed_time_string( $post->post_modified, 'Y-m-d H:i:s' ) );
 		}
 	}
 
@@ -144,8 +162,14 @@ class TemplateTagsTest extends \Codeception\TestCase\WPTestCase {
 				'post_date'     => $time->format( 'Y-m-d H:i:s' ),
 				'post_modified' => $time->format( 'Y-m-d H:i:s' ),
 			) );
-			$this->assertEquals( $expected_item, get_elapsed_time_string( false, $post->ID ) );
-			$this->assertEquals( $expected_item, get_elapsed_time_string( true, $post->ID ) );
+
+			// Expect elapsed time string on default time format 'Y-m-d H:i:s'.
+			$this->assertEquals( $expected_item, get_elapsed_time_string( $post->post_date ) );
+			$this->assertEquals( $expected_item, get_elapsed_time_string( $post->post_modified ) );
+
+			// Use the custom time format parameter.
+			$this->assertEquals( $expected_item, get_elapsed_time_string( $post->post_date, 'Y-m-d H:i:s' ) );
+			$this->assertEquals( $expected_item, get_elapsed_time_string( $post->post_modified, 'Y-m-d H:i:s' ) );
 		}
 	}
 
@@ -178,9 +202,50 @@ class TemplateTagsTest extends \Codeception\TestCase\WPTestCase {
 				'post_date'     => $time->format( 'Y-m-d H:i:s' ),
 				'post_modified' => $time->format( 'Y-m-d H:i:s' ),
 			) );
-			$this->assertEquals( $expected_item, get_elapsed_time_string( false, $post->ID ) );
-			$this->assertEquals( $expected_item, get_elapsed_time_string( true, $post->ID ) );
+
+			// Expect elapsed time string on default time format 'Y-m-d H:i:s'.
+			$this->assertEquals( $expected_item, get_elapsed_time_string( $post->post_date ) );
+			$this->assertEquals( $expected_item, get_elapsed_time_string( $post->post_modified ) );
+
+			// Use the custom time format parameter.
+			$this->assertEquals( $expected_item, get_elapsed_time_string( $post->post_date, 'Y-m-d H:i:s' ) );
+			$this->assertEquals( $expected_item, get_elapsed_time_string( $post->post_modified, 'Y-m-d H:i:s' ) );
 		}
 	}
 
+	/**
+	 * Be able to use Unix timestamp
+	 * to detect return elapsed time sting.
+	 *
+	 * @return void
+	 */
+	public function test_get_elapsed_time_string_from_unix_epoch_format() {
+		// Get date of yesterday.
+		$time = new DateTime( '-1 day' );
+
+		// Get Unix Epoch timestamp.
+		$unix_time = $time->format( 'U' );
+
+		// Check if elapsed time works correctly.
+		$this->assertEquals( '1 day', get_elapsed_time_string( $unix_time, 'U' ) );
+	}
+
+	/**
+	 * Input invalid time format and return false.
+	 *
+	 * @return void
+	 */
+	public function test_reject_elapsed_time_string_invalid_time_format() {
+		// Get yesterday.
+		$time = new DateTime( '-1 day' );
+
+		// Test different formats not available to the function.
+		$this->assertFalse( get_elapsed_time_string( $time->format( 'r' ) ) );
+		$this->assertFalse( get_elapsed_time_string( $time->format( 'c' ) ) );
+
+		// Outright invalid formats.
+		$this->assertFalse( get_elapsed_time_string( $time->format( '@()#*!)(@#' ) ) );
+		$this->assertFalse( get_elapsed_time_string( $time->format( 'I hate Mondays.' ) ) );
+		$this->assertFalse( get_elapsed_time_string( $time->format( 'ASDASDASD' ) ) );
+	}
 }

@@ -43,14 +43,14 @@ if ( post_password_required() ) {
 			?>
 		</h2>
 
-		<ol class="comment-list">
+		<ol class="comments-list">
 			<?php
 			wp_list_comments( array(
-				'avatar_size' => 100,
+				'avatar_size' => 50,
 				'callback'    => 'jhuy_list_comments_callback',
 				'style'       => 'ol',
 				'short_ping'  => true,
-				'reply_text'  => jhuy_get_oi_svg( array( 'name' => 'arrow-thick-left' ) ),
+				'reply_text'  => 'Reply',
 			) );
 			?>
 		</ol>
@@ -68,8 +68,10 @@ if ( post_password_required() ) {
 		<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'jhuy' ); ?></p>
 	<?php endif; ?>
 
+</div><!-- #comments -->
+
+<div class="post-container comment-form">
 	<?php
 	comment_form();
 	?>
-
-</div><!-- #comments -->
+</div>

@@ -1,0 +1,45 @@
+.comment {
+  margin-bottom: 15px;
+  margin-left: 0;
+  margin-top: 15px;
+
+  &-meta,
+  &-author {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+  }
+
+  &-author {
+    a {
+      color: $black;
+      font-weight: bold;
+    }
+  }
+
+  &-meta {
+    margin-bottom: 15px;
+
+    &data {
+      margin-left: 10px;
+    }
+  }
+
+  .avatar {
+    border-radius: 100%;
+    margin-right: 10px;
+  }
+
+  &.depth-2,
+  &.depth-3,
+  &.depth-4,
+  &.depth-5,
+  &.depth-6,
+  &.depth-7,
+  &.depth-8,
+  &.depth-9,
+  &.depth-10 {
+    margin-left: 50px;
+  }
+}
+

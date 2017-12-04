@@ -1,4 +1,12 @@
 .comments {
+  &-list {
+    list-style: none;
+
+    .children {
+      list-style: none;
+    }
+  }
+
   &-title {
     color: theme-color('primary');
     margin-bottom: 10px;

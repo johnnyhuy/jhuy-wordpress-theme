@@ -290,14 +290,27 @@ add_filter( 'excerpt_more', 'jhuy_excerpt_more' );
  * @return void
  */
 function jhuy_list_comments_callback( $comment, $args, $depth ) {
+	$avatar = get_avatar( $comment, $args['avatar_size'] );
 	?>
 	<li id="comment-<?php comment_ID(); ?>" <?php comment_class(); ?>>
 		<article id="comment-article-<?php comment_ID(); ?>" class="comment-body">
 			<footer class="comment-meta">
 				<div class="comment-author vcard">
-
+					<?php echo $avatar; ?>
+					<?php echo get_comment_author_link( $comment ); ?>
 				</div><!-- .comment-author -->
 				<div class="comment-metadata">
+					<a href="<?php echo esc_url( get_comment_link( $comment, $args ) ); ?>">
+						<time datetime="<?php comment_time( 'c' ); ?>">
+						<?php
+						printf(
+							'%1$s ago, %2$s',
+							get_elapsed_time_string( get_comment_time( 'U' ), 'U' ),
+							get_comment_date( 'F d Y', $comment )
+						);
+						?>
+						</time>
+					</a>
 				</div><!-- .comment-metadata -->
 			</footer>
 			<div class="comment-content">
@@ -305,6 +318,15 @@ function jhuy_list_comments_callback( $comment, $args, $depth ) {
 				<div class="comment-reply">
 				</div><!-- .comment-reply -->
 			</div><!-- .comment-content -->
+			<div class="comment-controls">
+				<?php edit_comment_link( __( 'Edit' ), '<span class="comment-edit">', '</span>' ); ?>
+				<?php
+				comment_reply_link( array_merge( $args, array(
+					'depth'     => $depth,
+					'max_depth' => $args['max_depth'],
+				) ) );
+				?>
+			</div>
 		</article>
 	</li><!-- .comment -->
 	<?php
@@ -313,7 +335,7 @@ function jhuy_list_comments_callback( $comment, $args, $depth ) {
 /**
  * Custom template tags for this theme.
  */
-require get_parent_theme_file_path( '/inc/template-tags.php' );
+require get_parent_theme_file_path( '/inc/time-string.php' );
 
 /**
  * Admin panel custom theme settings.
