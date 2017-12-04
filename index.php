@@ -84,6 +84,10 @@ $stickies = get_option( 'sticky_posts' );
 				 */
 				get_template_part( 'template-parts/post/content', get_post_format() );
 
+				if ( comments_open() || get_comments_number() ) :
+					comments_template();
+				endif;
+
 			}
 		} else {
 

@@ -46,6 +46,10 @@ blockquote {
   margin-bottom: 1.4rem;
   margin-top: 1.4rem;
   padding: .8rem;
+
+  p {
+    margin-bottom: 0;
+  }
 }
 
 // Headings.
