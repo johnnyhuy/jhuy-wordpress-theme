@@ -39,6 +39,13 @@ if ( ! has_excerpt() ) {
 } else {
 	$entry_class = 'entry-content entry-excerpt';
 }
+
+/**
+ * Make short aliases.
+ */
+$author_id       = get_the_author_meta( 'ID' );
+$author_email    = get_the_author_meta( 'user_nicename' );
+$author_nicename = get_the_author_meta( 'user_nicename' );
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -90,12 +97,12 @@ if ( ! has_excerpt() ) {
 				) );
 
 				wp_link_pages( array(
-					'before' => '<nav class="navigation pagination" role="navigation">',
-					'after' => '</nav>',
-					'link_before' => '<span class="page-numbers">',
-					'link_after' => '</span>',
+					'before'         => '<nav class="navigation pagination" role="navigation">',
+					'after'          => '</nav>',
+					'link_before'    => '<span class="page-numbers">',
+					'link_after'     => '</span>',
 					'next_or_number' => 'number',
-					'separator' => '&nbsp',
+					'separator'      => '&nbsp',
 				) );
 			} else {
 				the_excerpt();
@@ -103,31 +110,58 @@ if ( ! has_excerpt() ) {
 			?>
 
 		</div>
-		<?php
-		/**
-		 * Check if post is a post
-		 * and display post meta.
-		 */
-		if ( 'post' === get_post_type() ) {
-			echo '<div class="entry-meta">';
 
-			// Display avatar.
-			echo '<img class="entry-author-avatar" src="' . esc_url( get_avatar_url( get_the_author_meta( 'email' ) ) ) . '" alt="profile_pic">';
+	<?php if ( 'post' === get_post_type() && ! is_singular() ) : ?>
 
-			// Display nice name.
-			echo esc_html( get_the_author_meta( 'user_nicename' ) ) . ' ';
+		<footer class="entry-meta entry-meta-small">
+			<img class="entry-avatar entry-avatar-small" src="<?php echo esc_url( get_avatar_url( $author_email ) ); ?>" alt="profile_pic">
+			<a class="entry-author entry-author-small" href="<?php echo get_author_posts_url( $author_id, $author_nicename ); ?>"><?php echo $author_nicename; ?></a>
+			<span class="screen-reader-text"> posted </span>
+			<?php echo jhuy_time_link(); ?>
+		</footer><!-- .entry-meta-small -->
 
-			// Only show edit button when post is visited.
-			if ( is_single() ) {
-				jhuy_posted_on();
-			} else {
-				echo '<span class="screen-reader-text">posted </span>';
-				echo jhuy_time_link();
-				jhuy_edit_link();
-			};
+	<?php endif; ?>
 
-			echo '</div><!-- .entry-meta -->';
-		};
-		?>
 	</div>
 </article><!-- #post-## -->
+
+<?php if ( is_singular() ) : ?>
+
+	<footer class="post-container entry-meta entry-meta-large">
+		<img class="entry-avatar entry-avatar-large" src="<?php echo esc_url( get_avatar_url( get_the_author_meta( 'email' ), 75 ) ); ?>" alt="profile_pic">
+		<div class="entry-metadata">
+			<a class="entry-author entry-author-large" href="<?php echo get_author_posts_url( $author_id, $author_nicename ); ?>">
+				<?php echo $author_nicename; ?>
+			</a>
+			<p class="entry-time entry-time-created">Post created
+				<time class="entry-date published updated" datetime="<?php echo get_the_time( 'c' ); ?>">
+					<?php
+						printf(
+							'%1$s ago, %2$s',
+							get_elapsed_time_string( get_the_time( 'U' ), 'U' ),
+							get_the_time( 'F d Y' )
+						)
+						?>
+				</time>
+			</p>
+
+			<?php if ( get_the_modified_time( 'U' ) !== get_the_time( 'U' ) ) : ?>
+
+				<p class="entry-time entry-time-modified">Last modified
+					<time class="entry-date published updated" datetime="<?php echo get_the_modified_time( 'c' ); ?>">
+						<?php
+						printf(
+							'%1$s ago, %2$s',
+							get_elapsed_time_string( get_the_modified_time( 'U' ), 'U' ),
+							get_the_modified_time( 'F d Y' )
+						)
+						?>
+					</time>
+				</p>
+
+			<?php endif; ?>
+
+		</div>
+	</footer>
+
+<?php endif; ?>
