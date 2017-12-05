@@ -21,57 +21,67 @@ if ( post_password_required() ) {
 }
 ?>
 
-<div id="comments" class="post-container comments-area">
+<?php if ( have_comments() ) : ?>
 
-	<?php if ( have_comments() ) : ?>
-		<h2 class="comments-title">
+	<article id="comments" class="post-container comments-area">
+
+			<h2 class="comments-title">
+				<?php
+				// Get count of comments for this post.
+				$comments_number = get_comments_number();
+
+				// Print comment section title.
+				printf(
+					_nx(
+						'%1$s Comment',
+						'%1$s Comments',
+						$comments_number,
+						'comments title',
+						'jhuy'
+					),
+					esc_html( number_format_i18n( $comments_number ) )
+				);
+				?>
+			</h2>
+
+			<ol class="comments-list">
+				<?php
+				wp_list_comments( array(
+					'avatar_size' => 50,
+					'callback'    => 'jhuy_list_comments_callback',
+					'style'       => 'ol',
+					'short_ping'  => true,
+					'reply_text'  => 'Reply',
+				) );
+				?>
+			</ol>
+
 			<?php
-			// Get count of comments for this post.
-			$comments_number = get_comments_number();
-
-			// Print comment section title.
-			printf(
-				_nx(
-					'%1$s Comment',
-					'%1$s Comments',
-					$comments_number,
-					'comments title',
-					'jhuy'
-				),
-				esc_html( number_format_i18n( $comments_number ) )
-			);
-			?>
-		</h2>
-
-		<ol class="comments-list">
-			<?php
-			wp_list_comments( array(
-				'avatar_size' => 50,
-				'callback'    => 'jhuy_list_comments_callback',
-				'style'       => 'ol',
-				'short_ping'  => true,
-				'reply_text'  => 'Reply',
+			the_comments_pagination( array(
+				'prev_text' => jhuy_get_oi_svg( array(
+					'name'  => 'arrow-left',
+					'class' => 'comments-pagination-arrow',
+				) ),
+				'next_text' => jhuy_get_oi_svg( array(
+					'name'  => 'arrow-right',
+					'class' => 'comments-pagination-arrow',
+				) ),
 			) );
 			?>
-		</ol>
 
-		<?php
-		the_comments_pagination( array(
-			'prev_text' => jhuy_get_oi_svg( array( 'name' => 'arrow-left' ) ),
-			'next_text' => jhuy_get_oi_svg( array( 'name' => 'arrow-right' ) ),
-		) );
-		?>
+	</article><!-- #comments -->
 
-	<?php endif; ?>
+<?php endif; ?>
 
-	<?php if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) : ?>
-		<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'jhuy' ); ?></p>
-	<?php endif; ?>
-
-</div><!-- #comments -->
-
-<div class="post-container comment-form">
+<article class="post-container comment-reply">
 	<?php
-	comment_form();
+	comment_form( array(
+		'class_submit' => 'comment-submit',
+		'comment_field' => '<textarea id="comment" class="comment-textarea" name="comment" aria-required="true"></textarea>',
+		'submit_field' => '%1$s %2$s',
+	) );
 	?>
-</div>
+	<?php if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) : ?>
+		<p class="comments-closed"><?php esc_html_e( 'Comments are closed.', 'jhuy' ); ?></p>
+	<?php endif; ?>
+</article>

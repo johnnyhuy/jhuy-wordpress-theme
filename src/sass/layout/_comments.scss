@@ -1,9 +1,51 @@
 .comments {
+  &-closed {
+    margin-bottom: 0;
+  }
+
   &-list {
     list-style: none;
 
     .children {
       list-style: none;
+    }
+  }
+
+  &-pagination {
+    display: flex;
+    justify-content: center;
+
+    &-arrow {
+      fill: $white;
+      height: 10px;
+      margin: auto 0;
+      width: 10px;
+    }
+
+    a,
+    span {
+      background-color: theme-color('primary');
+    }
+
+    .current {
+      background-color: theme-color('primary-dark');
+    }
+
+    .page-numbers {
+      border-radius: 100%;
+      color: $white;
+      display: inline-block;
+      line-height: 1;
+      padding: 4px;
+      text-align: center;
+      text-decoration: none;
+      transition: background-color .2s ease-out;
+      width: 16px;
+
+      &:hover {
+        background-color: theme-color('primary-dark');
+        color: $white;
+      }
     }
   }
 

@@ -17,12 +17,56 @@
     }
   }
 
+
   &-meta {
     margin-bottom: 15px;
 
     &data {
       margin-left: 10px;
     }
+  }
+
+  &-form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-reply {
+    &-title {
+      color: theme-color('primary');
+      margin-bottom: 10px;
+      margin-top: 0;
+      padding-top: 0;
+    }
+  }
+
+  &-submit {
+    background-color: theme-color('primary');
+    border: 0;
+    border-radius: 4px;
+    color: $white;
+    font-family: $font-family-base;
+    font-weight: 500;
+    margin-bottom: 0;
+    margin-top: 15px;
+    outline: none;
+    padding: 8px;
+
+    &:hover {
+      background-color: theme-color('primary-light');
+      cursor: pointer;
+    }
+  }
+
+  &-textarea {
+    background-clip: padding-box;
+    background-color: $white;
+    border: 1px $gray-100 solid;
+    border-radius: 4px;
+    box-shadow: none;
+    outline: none;
+    padding: 4px;
+    resize: none;
   }
 
   .avatar {
