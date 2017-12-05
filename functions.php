@@ -333,6 +333,20 @@ function jhuy_list_comments_callback( $comment, $args, $depth ) {
 }
 
 /**
+ * Remove screen reader text from navigation markup.
+ *
+ * @param string $content Raw HTML content.
+ * @return string
+ */
+function remove_screen_reader_text( $content ) {
+	$exp     = '$<h2 class="screen-reader-text">(.*?)<\/h2>$si';
+	$content = preg_replace( $exp, '', $content );
+
+	return $content;
+}
+add_action( 'navigation_markup_template', 'remove_screen_reader_text' );
+
+/**
  * Custom template tags for this theme.
  */
 require get_parent_theme_file_path( '/inc/time-string.php' );
