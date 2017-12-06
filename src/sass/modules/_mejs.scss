@@ -1,0 +1,11 @@
+.mejs {
+  &-container {
+    a {
+      box-shadow: none;
+
+      &:hover {
+        box-shadow: none;
+      }
+    }
+  }
+}

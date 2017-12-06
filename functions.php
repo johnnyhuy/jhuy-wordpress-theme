@@ -257,6 +257,34 @@ function jhuy_get_pagination() {
 }
 
 /**
+ * Singular post titles look different to
+ * blog content.
+ *
+ * @return void
+ */
+function jhuy_the_title() {
+	/**
+	 * Do not show dot next to title if sticky,
+	 * since sticky posts look different
+	 * compared to normal posts.
+	 */
+	$dot = is_sticky() ? '' : 'site-blog-dot';
+
+	if ( is_single() ) {
+		$title_start = '<h3 class="entry-title">';
+		$title_end   = '</h3>';
+	} elseif ( is_front_page() || is_home() ) {
+		$title_start = '<h3 class="entry-title ' . $dot . '"><a class="entry-title-link" href="' . esc_url( get_permalink() ) . '" rel="bookmark">';
+		$title_end   = '</a></h3>';
+	} else {
+		$title_start = '<h3 class="entry-title"><a class="entry-title-link" href="' . esc_url( get_permalink() ) . '" rel="bookmark">';
+		$title_end   = '</a></h3>';
+	}
+
+	the_title( $title_start, $title_end );
+}
+
+/**
  * Adjust main query before post.
  *
  * @param array $query query object.
@@ -333,6 +361,20 @@ function jhuy_list_comments_callback( $comment, $args, $depth ) {
 	</li><!-- .comment -->
 	<?php
 }
+
+/**
+ * Remove screen reader text from navigation markup.
+ *
+ * @param string $content Raw HTML content.
+ * @return string
+ */
+function remove_screen_reader_text( $content ) {
+	$exp     = '$<h2 class="screen-reader-text">(.*?)<\/h2>$si';
+	$content = preg_replace( $exp, '', $content );
+
+	return $content;
+}
+add_action( 'navigation_markup_template', 'remove_screen_reader_text' );
 
 /**
  * Custom template tags for this theme.

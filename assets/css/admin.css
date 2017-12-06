@@ -1,7 +1,7 @@
 .upload-image {
+  border: 1px #ccc solid;
   margin: 0 6px;
-  padding: 4px;
-  border: 1px #ccc solid; }
+  padding: 4px; }
   .upload-image-container {
     margin: 0 -6px; }
   .upload-image-lrg {

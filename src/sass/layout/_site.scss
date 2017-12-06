@@ -12,10 +12,6 @@
       margin: $grid-gutter-width 0;
     }
 
-    &-sticky {
-      margin-top: -15px;
-    }
-
     &-bar {
       @media (min-width: grid-breakpoint(md)) {
         padding-left: 40px;

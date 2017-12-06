@@ -22,7 +22,7 @@ $stickies = get_option( 'sticky_posts' );
 ?>
 <?php get_header(); ?>
 
-	<di id="main" class="container container-sidebar site-main" role="main">
+	<main id="main" class="container container-sidebar site-main" role="main">
 
 		<?php
 		/**

@@ -1,7 +1,22 @@
 .entry {
   &-author {
-    &-avatar {
-      border-radius: 100%;
+    font-weight: bold;
+
+    &-large {
+      font-size: 2.2rem;
+    }    
+  }
+
+  &-avatar {
+    border-radius: 100%;
+
+    &-large {
+      height: 75px;
+      margin-right: 15px;
+      width: 75px;
+    }
+
+    &-small {        
       height: 16px;
       margin-bottom: -2px;
       margin-right: 6px;
@@ -17,6 +32,35 @@
 
       &:hover {
         box-shadow: inset 0 -1px 0 theme-color('primary-dark');
+      }
+    }
+
+    &:after {
+      clear: both;
+      content: '';
+      display: block;
+      float: none;
+    }
+
+    .more-link {
+      box-shadow: none;
+      display: block;
+      margin-top: 15px;
+
+      &:hover {
+        box-shadow: none;
+      }
+    }
+
+    .attachment {
+      margin-bottom: 0;
+
+      a {
+        box-shadow: none;
+
+        &:hover {
+          box-shadow: none;
+        }
       }
     }
   }
@@ -57,18 +101,43 @@
   }
 
   &-meta {
-    clear: both;
-    font-size: 1.4rem;
+    &data {
+      display: flex;  
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    &-large {
+      display: flex;
+    }
+
+    &-small {
+      clear: both;
+      font-size: 1.4rem;
+      font-style: italic;
+      margin-top: 8px;
+      text-align: right;
+    }
+  }
+
+  &-pagination {
+    margin-top: 15px;
+  }
+
+  &-time {
+    color: $gray-800;
     font-style: italic;
-    margin-top: 8px;
-    text-align: right;
+    margin-bottom: 0;
   }
 
   &-title {
     color: theme-color('primary');
+    display: inline-block;
     margin-bottom: 10px;
     margin-top: 0;
     padding-top: 0;
+    word-wrap: break-word;
+    width: 100%;
 
     &-link {
       box-shadow: none;
@@ -89,4 +158,5 @@
     margin-right: 8px;
     margin-top: -8px;
   }
+
 }
