@@ -42,6 +42,8 @@ function jhuy_after() {
 		'audio',
 	) );
 
+	add_theme_support( 'title-tag' );
+
 	// Add theme support for Custom Logo.
 	add_theme_support( 'custom-logo', array(
 		'width'       => 250,
