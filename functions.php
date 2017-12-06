@@ -255,6 +255,34 @@ function jhuy_get_pagination() {
 }
 
 /**
+ * Singular post titles look different to
+ * blog content.
+ *
+ * @return void
+ */
+function jhuy_the_title() {
+	/**
+	 * Do not show dot next to title if sticky,
+	 * since sticky posts look different
+	 * compared to normal posts.
+	 */
+	$dot = is_sticky() ? '' : 'site-blog-dot';
+
+	if ( is_single() ) {
+		$title_start = '<h3 class="entry-title">';
+		$title_end   = '</h3>';
+	} elseif ( is_front_page() || is_home() ) {
+		$title_start = '<h3 class="entry-title ' . $dot . '"><a class="entry-title-link" href="' . esc_url( get_permalink() ) . '" rel="bookmark">';
+		$title_end   = '</a></h3>';
+	} else {
+		$title_start = '<h3 class="entry-title"><a class="entry-title-link" href="' . esc_url( get_permalink() ) . '" rel="bookmark">';
+		$title_end   = '</a></h3>';
+	}
+
+	the_title( $title_start, $title_end );
+}
+
+/**
  * Adjust main query before post.
  *
  * @param array $query query object.

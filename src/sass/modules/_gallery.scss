@@ -1,0 +1,26 @@
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: $grid-gutter-width;
+
+  &-caption {
+    padding: 5px;
+    text-align: center;
+  }
+
+  &-item {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    a {
+      box-shadow: none;
+      display: flex;
+
+      &:hover {
+        box-shadow: none;
+      }
+    }
+  }
+}

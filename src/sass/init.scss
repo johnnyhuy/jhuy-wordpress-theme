@@ -18,7 +18,7 @@
 
 // Load vendor files
 @import 'config/open-iconic';
-@import '~open-iconic/font/css/open-iconic';
+@import '~open-iconic/font/css/open-iconic-bootstrap';
 @import 'config/hamburgers';
 @import '~hamburgers/_sass/hamburgers/hamburgers';
 
@@ -44,6 +44,8 @@
 @import 'modules/container';
 @import 'modules/comment';
 @import 'modules/entry';
+@import 'modules/gallery';
+@import 'modules/mejs';
 @import 'modules/pagination';
 @import 'modules/post';
 @import 'modules/search';

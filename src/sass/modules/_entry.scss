@@ -41,6 +41,28 @@
       display: block;
       float: none;
     }
+
+    .more-link {
+      box-shadow: none;
+      display: block;
+      margin-top: 15px;
+
+      &:hover {
+        box-shadow: none;
+      }
+    }
+
+    .attachment {
+      margin-bottom: 0;
+
+      a {
+        box-shadow: none;
+
+        &:hover {
+          box-shadow: none;
+        }
+      }
+    }
   }
 
   &-date {
@@ -98,6 +120,10 @@
     }
   }
 
+  &-pagination {
+    margin-top: 15px;
+  }
+
   &-time {
     color: $gray-800;
     font-style: italic;
@@ -106,9 +132,12 @@
 
   &-title {
     color: theme-color('primary');
+    display: inline-block;
     margin-bottom: 10px;
     margin-top: 0;
     padding-top: 0;
+    word-wrap: break-word;
+    width: 100%;
 
     &-link {
       box-shadow: none;
@@ -129,4 +158,5 @@
     margin-right: 8px;
     margin-top: -8px;
   }
+
 }
