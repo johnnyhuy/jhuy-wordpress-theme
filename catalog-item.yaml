@@ -1,0 +1,13 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: jhuy-wordpress-theme
+  title: JHuy Wordpress Theme
+  description: A Wordpress theme for my personal website
+  tags:
+    - wordpress
+    - php
+spec:
+  type: library
+  lifecycle: experimental
+  owner: johnnyhuy
